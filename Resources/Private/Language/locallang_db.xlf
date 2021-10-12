@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_faq/Resources/Private/Language/locallang_db.xlf" date="2020-06-04T08:43:24Z"
+		  product-name="ot_faq">
+		<header/>
+		<body>
+			<trans-unit id="tx_otfaq_domain_model_question" resname="tx_otfaq_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.question" resname="tx_otfaq_domain_model_question.question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.answer" resname="tx_otfaq_domain_model_question.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.answer.description"
+						resname="tx_otfaq_domain_model_question.answer.description">
+				<source><![CDATA[
+				Valid HTML tags include <h1> to <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <div>, <b>, <strong>, <i> and <em>.
+				Advertising is not permitted at this point!
+				]]></source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.link" resname="tx_otfaq_domain_model_question.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.link.description"
+						resname="tx_otfaq_domain_model_question.link.description">
+				<source><![CDATA[
+				The optional link can point to a page where the question is answered in detail.
+				]]></source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.related_questions"
+						resname="tx_otfaq_domain_model_question.related_questions">
+				<source>Related Questions</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.tags" resname="tx_otfaq_domain_model_question.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_tag" resname="tx_otfaq_domain_model_tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_tag.tag" resname="tx_otfaq_domain_model_tag.tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_ot_faq_list.name" resname="tx_ot_faq_list.name">
+				<source>FAQ</source>
+			</trans-unit>
+			<trans-unit id="tx_ot_faq_list.description" resname="tx_ot_faq_list.description">
+				<source>FAQ: Show a list of questions &amp; answers.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

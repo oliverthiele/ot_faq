@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      lang="de" data-namespace-typo3-fluid="true">
+<f:layout name="Default"/>
+
+<f:section name="content">
+    <h1>Listing for Tags</h1>
+
+    <f:flashMessages/>
+
+    <table class="tx_otfaq">
+        <tr>
+            <th>
+                <f:translate key="tx_otfaq_domain_model_tag.tag"/>
+            </th>
+            <th></th>
+        </tr>
+
+        <f:for each="{tags}" as="tag">
+            <tr>
+                <td>
+                    <f:link.action action="show" arguments="{tag : tag}"> {tag.tag}</f:link.action>
+                </td>
+            </tr>
+        </f:for>
+    </table>
+</f:section>
+</html>

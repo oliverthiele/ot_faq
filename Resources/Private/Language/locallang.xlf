@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_faq/Resources/Private/Language/locallang.xlf" date="2020-06-04T08:43:24Z"
+		  product-name="ot_faq">
+		<header/>
+		<body>
+			<trans-unit id="tx_otfaq_domain_model_question" resname="tx_otfaq_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.question" resname="tx_otfaq_domain_model_question.question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.answer" resname="tx_otfaq_domain_model_question.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.related_questions"
+						resname="tx_otfaq_domain_model_question.related_questions">
+				<source>Related Questions</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_question.tags" resname="tx_otfaq_domain_model_question.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_answer" resname="tx_otfaq_domain_model_answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_answer.answer" resname="tx_otfaq_domain_model_answer.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_tag" resname="tx_otfaq_domain_model_tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_otfaq_domain_model_tag.tag" resname="tx_otfaq_domain_model_tag.tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="button.more" resname="button.more">
+				<source>More</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
