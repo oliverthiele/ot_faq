@@ -17,6 +17,7 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'sortby' => 'sorting',
         'searchFields' => 'question',
         'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/question.svg'
     ],
