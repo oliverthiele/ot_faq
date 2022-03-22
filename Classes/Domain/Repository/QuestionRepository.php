@@ -22,5 +22,10 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
  */
 class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
+    /**
+     * @var array
+     */
+    protected $defaultOrderings = [
+        'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+    ];
 }
