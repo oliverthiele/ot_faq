@@ -8,7 +8,7 @@
 			"role": "Developer"
 		}
 	],
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"require": {
 		"ext-json": "*",
 		"typo3/cms-core": "^11.5.1"

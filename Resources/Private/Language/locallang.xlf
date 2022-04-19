@@ -36,6 +36,9 @@
 			<trans-unit id="button.more" resname="button.more">
 				<source>More</source>
 			</trans-unit>
+			<trans-unit id="button.more.json" resname="button.more.json">
+				<source>read more</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

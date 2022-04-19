@@ -44,6 +44,10 @@
 				<source>More</source>
 				<target>Mehr</target>
 			</trans-unit>
+			<trans-unit id="button.more.json" resname="button.more.json">
+				<source>read more</source>
+				<target>weiterlesen</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

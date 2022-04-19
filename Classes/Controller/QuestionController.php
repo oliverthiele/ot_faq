@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace OliverThiele\OtFaq\Controller;
 
 use JsonException;
+use OliverThiele\OtFaq\Domain\Model\Question;
 use OliverThiele\OtFaq\Domain\Repository\QuestionRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /***
@@ -51,7 +53,7 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
         $questionArray = [];
 
-        /** @var \OliverThiele\OtFaq\Domain\Model\Question $question */
+        /** @var Question $question */
         foreach ($questions as $question) {
             $cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
 
@@ -60,14 +62,22 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
                 'useCashHash' => false,
                 'forceAbsoluteUrl' => true
             ];
-            $link = $cObj->typoLink('Mehr zu dieser FAQ', $conf);
+
+            $link = '';
+            if ($conf['parameter'] !== '') {
+                $label = LocalizationUtility::translate(
+                    'button.more.json',
+                    'ot_faq'
+                );
+                $link = '<p>' . $cObj->typoLink($label, $conf) . '</p>';
+            }
 
             $questionArray[] = [
                 '@type' => 'Question',
                 'name' => $question->getQuestion(),
                 'acceptedAnswer' => [
                     '@type' => 'answer',
-                    'text' => $question->getAnswer().'<p>'.$link.'</p>'
+                    'text' => $question->getAnswer() . $link
                 ]
             ];
         }
