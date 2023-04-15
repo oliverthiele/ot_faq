@@ -49,6 +49,12 @@
 			<trans-unit id="tx_ot_faq_list.description" resname="tx_ot_faq_list.description">
 				<source>FAQ: Show a list of questions &amp; answers.</source>
 			</trans-unit>
+			<trans-unit id="flexform.disableStructuredData.label" resname="flexform.disableStructuredData.label">
+				<source>Disable Stuctured Data (JSON)</source>
+			</trans-unit>
+			<trans-unit id="flexform.disableStructuredData.description" resname="flexform.disableStructuredData.description">
+				<source>If the same FAQs should be output on another page or if JSON should not be output for other reasons, the checkbox must be set.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

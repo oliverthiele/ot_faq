@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace OliverThiele\OtFaq\Controller;
 
-
+use OliverThiele\OtFaq\Domain\Model\Tag;
 use OliverThiele\OtFaq\Domain\Repository\TagRepository;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /***
  *
@@ -22,28 +23,22 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * TagController
  */
-class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class TagController extends ActionController
 {
-
     /**
      * tagRepository
      *
-     * @var TagRepository|null
+     * @var TagRepository
      */
-    protected ?TagRepository $tagRepository = null;
+    protected TagRepository $tagRepository;
 
-    /**
-     * @param  TagRepository  $tagRepository
-     */
-    public function injectTagRepository(TagRepository $tagRepository)
+    public function injectTagRepository(TagRepository $tagRepository): void
     {
         $this->tagRepository = $tagRepository;
     }
 
     /**
      * action list
-     *
-     * @return ResponseInterface
      */
     public function listAction(): ResponseInterface
     {
@@ -57,11 +52,8 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      * action show
-     *
-     * @param  \OliverThiele\OtFaq\Domain\Model\Tag  $tag
-     * @return  ResponseInterface
      */
-    public function showAction(\OliverThiele\OtFaq\Domain\Model\Tag $tag): ResponseInterface
+    public function showAction(Tag $tag): ResponseInterface
     {
         $this->view->assign('tag', $tag);
 

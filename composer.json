@@ -3,7 +3,9 @@
 	"type": "typo3-cms-extension",
 	"description": "FAQ extension with output of structured data in JSON format.",
 	"homepage": "https://github.com/oliverthiele/ot_faq",
-	"license": ["GPL-2.0-or-later"],
+	"license": [
+		"GPL-2.0-or-later"
+	],
 	"authors": [
 		{
 			"name": "Oliver Thiele",
@@ -12,10 +14,13 @@
 			"role": "Developer"
 		}
 	],
-	"version": "2.0.4",
+	"version": "2.0.5",
 	"require": {
 		"ext-json": "*",
-		"typo3/cms-core": "^11.5"
+		"typo3/cms-core": "^11.5||^12.3"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-latest"
 	},
 	"autoload": {
 		"psr-4": {

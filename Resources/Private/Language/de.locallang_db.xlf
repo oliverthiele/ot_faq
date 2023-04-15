@@ -66,6 +66,14 @@
 				<source>FAQ: Shows a list of questions &amp; answers.</source>
 				<target>FAQ: Zeigt eine Liste mit Fragen &amp; Antworten.</target>
 			</trans-unit>
+			<trans-unit id="flexform.disableStructuredData.label" resname="flexform.disableStructuredData.label">
+				<source>Disable Stuctured Data (JSON)?</source>
+				<target>Ausgabe der Strukturierten Daten deaktivieren?</target>
+			</trans-unit>
+			<trans-unit id="flexform.disableStructuredData.description" resname="flexform.disableStructuredData.description">
+				<source>If the same FAQs should be output on another page or if JSON should not be output for other reasons, the checkbox must be set.</source>
+				<target>Wenn die gleichen FAQs auf einer weiteren Seite ausgegeben werden sollen oder aus anderen Gründen kein JSON ausgegeben werden soll, muss die Checkbox gesetzt werden.</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
