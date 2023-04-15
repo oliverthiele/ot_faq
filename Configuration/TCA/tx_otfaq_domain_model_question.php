@@ -19,7 +19,7 @@ return [
         ],
         'sortby' => 'sorting',
         'searchFields' => 'question',
-        'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/question.svg'
+        'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/question.svg',
     ],
     'types' => [
         '1' => [
@@ -28,17 +28,17 @@ return [
          --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
             --palette--;;hidden,
             --palette--;;access, ,
-         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories, categories'
+         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories, categories',
         ],
     ],
     'palettes' => [
         'access' => [
             'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access',
-            'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel, endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel, --linebreak--, fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel, --linebreak--,editlock'
+            'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel, endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel, --linebreak--, fe_group;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:fe_group_formlabel, --linebreak--,editlock',
         ],
         'hidden' => [
-            'showitem' => 'hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden'
-        ]
+            'showitem' => 'hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:field.default.hidden',
+        ],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -85,8 +85,8 @@ return [
                     [
                         0 => '',
                         1 => '',
-                        'invertStateDisplay' => true
-                    ]
+                        'invertStateDisplay' => true,
+                    ],
                 ],
             ],
         ],
@@ -99,8 +99,8 @@ return [
                 'eval' => 'datetime,int',
                 'default' => 0,
                 'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'endtime' => [
@@ -112,11 +112,11 @@ return [
                 'eval' => 'datetime,int',
                 'default' => 0,
                 'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
                 ],
                 'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
+                    'allowLanguageSynchronization' => true,
+                ],
             ],
         ],
         'question' => [
@@ -126,7 +126,7 @@ return [
                 'type' => 'input',
                 'size' => 50,
                 'max' => 255,
-                'eval' => 'trim,required'
+                'eval' => 'trim,required',
             ],
         ],
         'answer' => [
@@ -154,7 +154,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputLink',
-            ]
+            ],
         ],
         'related_questions' => [
             'exclude' => true,
@@ -206,16 +206,16 @@ return [
                     'default' => [
                         'additionalSearchFields' => 'tag',
 //                        'addWhere' => 'AND pages.doktype = 1'
-                    ]
-                ]
+                    ],
+                ],
             ],
         ],
         'categories' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_category.categories',
             'config' => [
-                'type' => 'category'
-            ]
-        ]
+                'type' => 'category',
+            ],
+        ],
     ],
 ];

@@ -23,7 +23,7 @@ and add the TypoScript in your root Template or in your sitepackage:
 @import "EXT:ot_faq/Configuration/TypoScript/setup.typoscript"
 ```
 
-Don't forget to update the database structure!
+**Don't forget to update the database structure!**
 
 
 ## How to add FAQs
@@ -35,6 +35,14 @@ Here are the rules from the Google documentation must be observed:
 [https://developers.google.com/search/docs/advanced/structured-data/faqpage](
 https://developers.google.com/search/docs/advanced/structured-data/faqpage)
 
+By default, the FAQ list HTML output (Bootstrap5 based template) also generates the structured
+data output in JSON format.
+
+**New in v2.0.5:**
+
+The storagePid (DB field pages) can now be used in the plugin. **Please make sure that no FAQ is output twice.**
+If you want to output FAQs on more than one page, you should deactivate the output of structured data
+via checkbox on one page.
 
 ## General notes about the FAQs
 
@@ -46,3 +54,11 @@ https://developers.google.com/search/docs/advanced/structured-data/faqpage)
 ## Planned improvements.
 
 * Add an RTE configuration where only the allowed HTML tags can be used.
+
+## Changes
+
+### v2.0.5
+
+* Add Support for TYPO3 v12
+* Add support for storing FAQ in folders.
+* Improved code quality

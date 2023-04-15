@@ -15,7 +15,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2020-2021 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2023 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  *
  ***/
 
@@ -24,14 +24,13 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Question extends AbstractEntity
 {
-
     /**
      * The question
      *
      * @var string
      * @Extbase\Validate("NotEmpty")
      */
-    protected $question = '';
+    protected string $question = '';
 
     /**
      * The answer
@@ -39,29 +38,29 @@ class Question extends AbstractEntity
      * @var string
      * @Extbase\Validate("NotEmpty")
      */
-    protected $answer = '';
+    protected string $answer = '';
 
     /**
      * Related Questions
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverThiele\OtFaq\Domain\Model\Question>
+     * @var ObjectStorage<Question>
      */
-    protected $relatedQuestions = null;
+    protected ObjectStorage $relatedQuestions;
 
     /**
      * Tags
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\OliverThiele\OtFaq\Domain\Model\Tag>
+     * @var ObjectStorage<Tag>
      * @Extbase\ORM\Lazy
      */
-    protected $tags = null;
+    protected ObjectStorage $tags;
 
     /**
      * Link
      *
      * @var string
      */
-    protected $link = '';
+    protected string $link = '';
 
     /**
      * __construct
@@ -73,14 +72,11 @@ class Question extends AbstractEntity
 
     /**
      * Initializes all ObjectStorage properties
-     *
-     * @return void
      */
     protected function initStorageObjects(): void
     {
-        $this->answers = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->relatedQuestions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->tags = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->relatedQuestions = new ObjectStorage();
+        $this->tags = new ObjectStorage();
     }
 
     /**
@@ -95,20 +91,14 @@ class Question extends AbstractEntity
 
     /**
      * Sets the question
-     *
-     * @param  string  $question
-     * @return void
      */
-    public function setQuestion($question): void
+    public function setQuestion(string $question): void
     {
         $this->question = $question;
     }
 
     /**
      * Adds a Question
-     *
-     * @param  \OliverThiele\OtFaq\Domain\Model\Question  $relatedQuestion
-     * @return void
      */
     public function addRelatedQuestion(Question $relatedQuestion): void
     {
@@ -118,8 +108,7 @@ class Question extends AbstractEntity
     /**
      * Removes a Question
      *
-     * @param  \OliverThiele\OtFaq\Domain\Model\Question  $relatedQuestionToRemove  The Question to be removed
-     * @return void
+     * @param Question $relatedQuestionToRemove The Question to be removed
      */
     public function removeRelatedQuestion(Question $relatedQuestionToRemove): void
     {
@@ -129,9 +118,9 @@ class Question extends AbstractEntity
     /**
      * Returns the relatedQuestions
      *
-     * @return ObjectStorage<\OliverThiele\OtFaq\Domain\Model\Question>||null $relatedQuestions
+     * @return ObjectStorage<Question>|null $relatedQuestions
      */
-    public function getRelatedQuestions()
+    public function getRelatedQuestions(): ?ObjectStorage
     {
         return $this->relatedQuestions;
     }
@@ -139,8 +128,7 @@ class Question extends AbstractEntity
     /**
      * Sets the relatedQuestions
      *
-     * @param  ObjectStorage<\OliverThiele\OtFaq\Domain\Model\Question>  $relatedQuestions
-     * @return void
+     * @param ObjectStorage<Question> $relatedQuestions
      */
     public function setRelatedQuestions(ObjectStorage $relatedQuestions): void
     {
@@ -149,9 +137,6 @@ class Question extends AbstractEntity
 
     /**
      * Adds a Tag
-     *
-     * @param  Tag  $tag
-     * @return void
      */
     public function addTag(Tag $tag): void
     {
@@ -161,8 +146,7 @@ class Question extends AbstractEntity
     /**
      * Removes a Tag
      *
-     * @param  Tag  $tagToRemove  The Tag to be removed
-     * @return void
+     * @param Tag $tagToRemove The Tag to be removed
      */
     public function removeTag(Tag $tagToRemove): void
     {
@@ -172,7 +156,7 @@ class Question extends AbstractEntity
     /**
      * Returns the tags
      *
-     * @return ObjectStorage<\OliverThiele\OtFaq\Domain\Model\Tag>||null $tags
+     * @return ObjectStorage|null $tags
      */
     public function getTags(): ?ObjectStorage
     {
@@ -182,44 +166,30 @@ class Question extends AbstractEntity
     /**
      * Sets the tags
      *
-     * @param  ObjectStorage<\OliverThiele\OtFaq\Domain\Model\Tag>  $tags
-     * @return void
+     * @param ObjectStorage<Tag> $tags
      */
     public function setTags(ObjectStorage $tags): void
     {
         $this->tags = $tags;
     }
 
-    /**
-     * @return string
-     */
     public function getAnswer(): string
     {
         return $this->answer;
     }
 
-    /**
-     * @param  string  $answer
-     */
     public function setAnswer(string $answer): void
     {
         $this->answer = $answer;
     }
 
-    /**
-     * @return string
-     */
     public function getLink(): string
     {
         return $this->link;
     }
 
-    /**
-     * @param  string  $link
-     */
     public function setLink(string $link): void
     {
         $this->link = $link;
     }
-
 }

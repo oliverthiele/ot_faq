@@ -23,7 +23,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Tag extends AbstractEntity
 {
-
     /**
      * Tag
      *
@@ -46,7 +45,6 @@ class Tag extends AbstractEntity
      * Sets the tag
      *
      * @param  string  $tag
-     * @return void
      */
     public function setTag($tag): void
     {

@@ -1,0 +1,28 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Function</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.disableStructuredData>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.disableStructuredData.label</label>
+                            <description>LLL:EXT:ot_bt5carousel/Resources/Private/Language/locallang_db.xlf:flexform.disableStructuredData.description</description>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.disableStructuredData>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
