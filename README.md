@@ -1,6 +1,6 @@
 # FAQ-Extension
 
-This extension for TYPO3 v11.5 allows the output of structured data for a FAQPage.
+This extension for TYPO3 v11.5 & TYPO3 v12.x allows the output of structured data for a FAQPage.
 
 ## Installation
 
