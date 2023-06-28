@@ -67,10 +67,11 @@
                 </div>
             </f:for>
         </div>
-
+        <f:if condition="!{settings.disableStructuredData}">
         <script type="application/ld+json">
             {json -> f:format.raw()}
         </script>
+        </f:if>
     </f:if>
 </f:section>
 
