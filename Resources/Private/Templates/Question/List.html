@@ -12,12 +12,12 @@
 <f:section name="content">
     <f:flashMessages/>
     <f:if condition="{questions}">
-        <div class="accordion" id="accordion-{data.uid}">
+        <div class="accordion{f:if(condition: '{settings.accordionFlush} == 1', then: ' accordion-flush')}"
+             id="accordion-{data.uid}">
             <f:for each="{questions}" as="question" iteration="questionIterator">
                 <div class="accordion-item">
-
-                    <h2 class="accordion-header" id="heading-{question.uid}">
-                        <f:if condition="{questionIterator.isFirst}">
+                    <h{data.header_layout + 1} class="accordion-header" id="heading-{question.uid}">
+                        <f:if condition="{questionIterator.isFirst} && {settings.initialView} == 0">
                             <f:then>
                                 <button class="accordion-button" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapse-{question.uid}"
@@ -33,12 +33,12 @@
                                 </button>
                             </f:else>
                         </f:if>
-                    </h2>
-
-                    <f:if condition="{questionIterator.isFirst}">
+                    </h{data.header_layout + 1}>
+                    <f:if condition="{questionIterator.isFirst} && {settings.initialView} == 0">
                         <f:then>
                             <div id="collapse-{question.uid}" class="accordion-collapse collapse show"
-                                 aria-labelledby="heading-{question.uid}" data-bs-parent="#accordion-{data.uid}">
+                                 {f:if(condition: '{settings.alwaysOpen} != 1', then: 'data-bs-parent="#accordion-{data.uid}"')}
+                                 aria-labelledby="heading-{question.uid}">
                                 <div class="accordion-body">
                                     {question.answer -> f:format.html()}
                                     <f:if condition="{question.link}">
@@ -51,7 +51,8 @@
                         </f:then>
                         <f:else>
                             <div id="collapse-{question.uid}" class="accordion-collapse collapse"
-                                 aria-labelledby="heading-{question.uid}" data-bs-parent="#accordion-{data.uid}">
+                                 {f:if(condition: '{settings.alwaysOpen} != 1', then: 'data-bs-parent="#accordion-{data.uid}"')}
+                                 aria-labelledby="heading-{question.uid}">
                                 <div class="accordion-body">
                                     {question.answer -> f:format.html()}
                                     <f:if condition="{question.link}">
@@ -66,10 +67,11 @@
                 </div>
             </f:for>
         </div>
-
+        <f:if condition="!{settings.disableStructuredData}">
         <script type="application/ld+json">
             {json -> f:format.raw()}
         </script>
+        </f:if>
     </f:if>
 </f:section>
 

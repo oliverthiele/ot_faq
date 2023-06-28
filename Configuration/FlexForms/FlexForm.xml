@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3DataStructure>
     <meta>
         <langDisable>1</langDisable>
@@ -14,13 +15,70 @@
                         <TCEforms>
                             <exclude>1</exclude>
                             <label>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.disableStructuredData.label</label>
-                            <description>LLL:EXT:ot_bt5carousel/Resources/Private/Language/locallang_db.xlf:flexform.disableStructuredData.description</description>
+                            <description>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.disableStructuredData.description</description>
                             <config>
                                 <type>check</type>
                                 <default>0</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.disableStructuredData.title</numIndex>
+                                    </numIndex>
+                                </items>
                             </config>
                         </TCEforms>
                     </settings.disableStructuredData>
+                    <settings.initialView>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.initialView.label</label>
+                            <description>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.initialView.description</description>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.initialView.0</numIndex>
+                                        <numIndex index="1">0</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.initialView.1</numIndex>
+                                        <numIndex index="1">1</numIndex>
+                                    </numIndex>
+                                </items>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.initialView>
+                    <settings.accordionFlush>
+                        <TCEforms>
+                            <label>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.accordionFlush.label</label>
+                            <description>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.accordionFlush.description</description>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.accordionFlush.title</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.accordionFlush>
+                    <settings.alwaysOpen>
+                        <TCEforms>
+                            <label>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.alwaysOpen.label</label>
+                            <description>LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.alwaysOpen.description</description>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.alwaysOpen.title</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.alwaysOpen>
                 </el>
             </ROOT>
         </sDEF>

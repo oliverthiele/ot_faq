@@ -55,6 +55,41 @@
 			<trans-unit id="flexform.disableStructuredData.description" resname="flexform.disableStructuredData.description">
 				<source>If the same FAQs should be output on another page or if JSON should not be output for other reasons, the checkbox must be set.</source>
 			</trans-unit>
+			<trans-unit id="flexform.disableStructuredData.title" resname="flexform.disableStructuredData.title">
+				<source>Disable</source>
+			</trans-unit>
+			<trans-unit id="flexform.initialView.label" resname="flexform.initialView.label">
+				<source>Initial view</source>
+			</trans-unit>
+			<trans-unit id="flexform.initialView.description" resname="flexform.initialView.description">
+				<source>Default: First accordion items is opened, all others closed.</source>
+			</trans-unit>
+			<trans-unit id="flexform.initialView.0" resname="flexform.initialView.0">
+				<source>First opened</source>
+			</trans-unit>
+			<trans-unit id="flexform.initialView.1" resname="flexform.initialView.1">
+				<source>All accordion elements closed</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.accordionFlush.label" resname="flexform.accordionFlush.label">
+				<source>Accordion Flush</source>
+			</trans-unit>
+			<trans-unit id="flexform.accordionFlush.description" resname="flexform.accordionFlush.description">
+				<source>Add .accordion-flush to remove some borders and rounded corners to render accordions edge-to-edge with their parent container.</source>
+			</trans-unit>
+			<trans-unit id="flexform.accordionFlush.title" resname="flexform.accordionFlush.title">
+				<source>Enable</source>
+			</trans-unit>
+
+			<trans-unit id="flexform.alwaysOpen.label" resname="flexform.alwaysOpen.label">
+				<source>Always Open</source>
+			</trans-unit>
+			<trans-unit id="flexform.alwaysOpen.description" resname="flexform.alwaysOpen.description">
+				<source>Accordion items stay open when another item is opened.</source>
+			</trans-unit>
+			<trans-unit id="flexform.alwaysOpen.title" resname="flexform.alwaysOpen.title">
+				<source>Enable</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
