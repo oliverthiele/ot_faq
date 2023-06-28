@@ -1,54 +1,41 @@
 <?php
 
+use OliverThiele\OtFaq\Controller\QuestionController;
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+use TYPO3\CMS\Core\Imaging\IconRegistry;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') or die();
 
 call_user_func(
     function () {
-        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        ExtensionUtility::configurePlugin(
             'OtFaq',
             'List',
-            [\OliverThiele\OtFaq\Controller\QuestionController::class => 'list'],
+            [QuestionController::class => 'list'],
             // non-cacheable actions
-            [\OliverThiele\OtFaq\Controller\QuestionController::class => ''],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_PLUGIN
+            [QuestionController::class => '']
         );
 
-        // wizards
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            'mod {
-            wizards.newContentElement.wizardItems.plugins {
-                elements {
-                    list {
-                        iconIdentifier = ot_faq-plugin
-                        title = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_ot_faq_list.name
-                        description = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_ot_faq_list.description
-                        tt_content_defValues {
-                            CType = list
-                            list_type = otfaq_list
-                        }
-                    }
-                }
-                show = *
-            }
-       }'
-        );
+        $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
+        // Only include page.tsconfig if TYPO3 version is below 12 so that it is not imported twice.
+        if ($versionInformation->getMajorVersion() < 12) {
+            ExtensionManagementUtility::addPageTSConfig(
+                '@import "EXT:ot_faq/Configuration/page.tsconfig"'
+            );
+        }
 
-        $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            \TYPO3\CMS\Core\Imaging\IconRegistry::class
+        $iconRegistry = GeneralUtility::makeInstance(
+            IconRegistry::class
         );
 
         $iconRegistry->registerIcon(
             'ot_faq-plugin',
-            \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            SvgIconProvider::class,
             ['source' => 'EXT:ot_faq/Resources/Public/Icons/question.svg']
-        );
-
-        // Feature is not ready yet
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-            '
-                TCEFORM.tx_otfaq_domain_model_question.tags.disabled = 1
-                TCEFORM.tx_otfaq_domain_model_question.related_questions.disabled = 1
-        '
         );
     }
 );
