@@ -20,6 +20,9 @@ return [
         'sortby' => 'sorting',
         'searchFields' => 'question',
         'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/question.svg',
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ]
     ],
     'types' => [
         '1' => [
