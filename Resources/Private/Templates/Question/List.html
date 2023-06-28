@@ -16,7 +16,7 @@
              id="accordion-{data.uid}">
             <f:for each="{questions}" as="question" iteration="questionIterator">
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading-{question.uid}">
+                    <h{data.header_layout + 1} class="accordion-header" id="heading-{question.uid}">
                         <f:if condition="{questionIterator.isFirst} && {settings.initialView} == 0">
                             <f:then>
                                 <button class="accordion-button" type="button"
@@ -33,7 +33,7 @@
                                 </button>
                             </f:else>
                         </f:if>
-                    </h2>
+                    </h{data.header_layout + 1}>
                     <f:if condition="{questionIterator.isFirst} && {settings.initialView} == 0">
                         <f:then>
                             <div id="collapse-{question.uid}" class="accordion-collapse collapse show"
