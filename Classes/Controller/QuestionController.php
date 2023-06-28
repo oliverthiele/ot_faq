@@ -88,7 +88,7 @@ class QuestionController extends ActionController
             '@type' => 'FAQPage',
             'mainEntity' => $questionArray,
         ];
-        $json = json_encode($array, JSON_THROW_ON_ERROR);
+        $json = json_encode($array, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
         $this->view->assign('json', $json);
 
         return $this->responseFactory->createResponse()
