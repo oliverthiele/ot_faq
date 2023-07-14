@@ -27,7 +27,7 @@ class Tag extends AbstractEntity
      * Tag
      *
      * @var string
-     * @Extbase\Annotation\Validate("NotEmpty")
+     * @Extbase\Validate("NotEmpty")
      */
     protected $tag = '';
 
