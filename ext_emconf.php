@@ -7,10 +7,10 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Oliver Thiele',
     'author_email' => 'mail@oliver-thiele.de',
     'state' => 'stable',
-    'version' => '2.0.8',
+    'version' => '3.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '11.5.1-12.4.99',
+            'typo3' => '12.4.15-12.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],

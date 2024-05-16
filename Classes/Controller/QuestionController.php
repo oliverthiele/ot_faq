@@ -24,9 +24,7 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class QuestionController extends ActionController
 {
-    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj)
-    {
-    }
+    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj) {}
 
     /**
      * action list
