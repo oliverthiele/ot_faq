@@ -2,7 +2,7 @@ mod {
   wizards.newContentElement.wizardItems.plugins {
     elements {
       list {
-        iconIdentifier = ot_faq-plugin
+        iconIdentifier = ot-faq-plugin
         title = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_ot_faq_list.name
         description = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_ot_faq_list.description
         tt_content_defValues {

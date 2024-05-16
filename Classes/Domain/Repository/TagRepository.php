@@ -20,6 +20,4 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * The repository for Questions
  */
-class TagRepository extends Repository
-{
-}
+class TagRepository extends Repository {}

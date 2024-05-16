@@ -7,11 +7,11 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
-ExtensionUtility::registerPlugin(
+$pluginSignature = ExtensionUtility::registerPlugin(
     'OtFaq',
     'List',
     'FAQ',
-    'EXT:ot_faq/Resources/Public/Icons/Extension.svg'
+    'EXT:ot_faq/Resources/Public/Icons/question.svg'
 );
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['otfaq_list'] = 'recursive';
@@ -22,6 +22,6 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['otfaq_li
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['otfaq_list'] = 'pi_flexform';
 
 ExtensionManagementUtility::addPiFlexFormValue(
-    'otfaq_list',
+    $pluginSignature,
     'FILE:EXT:ot_faq/Configuration/FlexForms/FlexForm.xml'
 );

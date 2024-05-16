@@ -6,7 +6,6 @@ return [
         'label' => 'question',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -22,7 +21,7 @@ return [
         'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/question.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
-        ]
+        ],
     ],
     'types' => [
         '1' => [
@@ -59,7 +58,10 @@ return [
                 'renderType' => 'selectSingle',
                 'default' => 0,
                 'items' => [
-                    ['', 0],
+                    [
+                        'label' => '',
+                        'value' => 0,
+                    ],
                 ],
                 'foreign_table' => 'tx_otfaq_domain_model_question',
                 'foreign_table_where' => 'AND {#tx_otfaq_domain_model_question}.{#pid}=###CURRENT_PID### AND {#tx_otfaq_domain_model_question}.{#sys_language_uid} IN (-1,0)',
@@ -70,14 +72,6 @@ return [
                 'type' => 'passthrough',
             ],
         ],
-        't3ver_label' => [
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'max' => 255,
-            ],
-        ],
         'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
@@ -86,8 +80,7 @@ return [
                 'renderType' => 'checkboxToggle',
                 'items' => [
                     [
-                        0 => '',
-                        1 => '',
+                        'label' => '',
                         'invertStateDisplay' => true,
                     ],
                 ],
@@ -96,29 +89,23 @@ return [
         'starttime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime',
                 'default' => 0,
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
             ],
         ],
         'endtime' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'type' => 'datetime',
                 'default' => 0,
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038),
-                ],
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
                 ],
             ],
         ],
@@ -129,7 +116,8 @@ return [
                 'type' => 'input',
                 'size' => 50,
                 'max' => 255,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
+                'required' => true,
             ],
         ],
         'answer' => [
@@ -156,7 +144,7 @@ return [
             'description' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_question.link.description',
             'config' => [
                 'type' => 'input',
-                'renderType' => 'inputLink',
+                'renderType' => 'link',
             ],
         ],
         'related_questions' => [
@@ -190,7 +178,6 @@ return [
             'label' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_question.tags',
             'config' => [
                 'type' => 'group',
-                'internal_type' => 'db',
                 'allowed' => 'tx_otfaq_domain_model_tag',
                 'MM' => 'tx_otfaq_question_tag_mm',
                 'foreign_table' => 'tx_otfaq_domain_model_tag',
@@ -208,7 +195,7 @@ return [
                 'suggestOptions' => [
                     'default' => [
                         'additionalSearchFields' => 'tag',
-//                        'addWhere' => 'AND pages.doktype = 1'
+                        //                        'addWhere' => 'AND pages.doktype = 1'
                     ],
                 ],
             ],

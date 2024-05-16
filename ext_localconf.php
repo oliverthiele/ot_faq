@@ -1,8 +1,6 @@
 <?php
 
 use OliverThiele\OtFaq\Controller\QuestionController;
-use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
-use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -27,15 +25,5 @@ call_user_func(
                 '@import "EXT:ot_faq/Configuration/page.tsconfig"'
             );
         }
-
-        $iconRegistry = GeneralUtility::makeInstance(
-            IconRegistry::class
-        );
-
-        $iconRegistry->registerIcon(
-            'ot_faq-plugin',
-            SvgIconProvider::class,
-            ['source' => 'EXT:ot_faq/Resources/Public/Icons/question.svg']
-        );
     }
 );

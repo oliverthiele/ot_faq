@@ -1,6 +1,6 @@
 # FAQ-Extension
 
-This extension for TYPO3 v11.5 & TYPO3 v12.x allows the output of structured data for a FAQPage.
+This extension for TYPO3 v12.x allows the output of structured data for a FAQPage.
 
 ## Installation
 
@@ -38,9 +38,14 @@ https://developers.google.com/search/docs/advanced/structured-data/faqpage)
 By default, the FAQ list HTML output (Bootstrap5 based template) also generates the structured
 data output in JSON format.
 
+**New in v3.0.0**
+
+All TCA configuration is now optimized for TYPO3 v12.
+
 **New in v2.0.5:**
 
-The storagePid (DB field pages) can now be used in the plugin. **Please make sure that no FAQ is output twice.**
+The storagePid (DB field pages) can now be used in the plugin.
+**Please make sure that no FAQ is output twice.**
 If you want to output FAQs on more than one page, you should deactivate the output of structured data
 via checkbox on one page.
 
@@ -56,6 +61,10 @@ via checkbox on one page.
 * Add an RTE configuration where only the allowed HTML tags can be used.
 
 ## Changes
+
+### v3.0.0
+
+* Removed support for TYPO3 v11
 
 ### v2.0.5
 
