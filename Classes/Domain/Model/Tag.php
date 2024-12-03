@@ -14,7 +14,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2020-2021 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2024 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  *
  ***/
 
@@ -27,8 +27,8 @@ class Tag extends AbstractEntity
      * Tag
      *
      * @var string
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected $tag = '';
 
     /**
@@ -44,9 +44,9 @@ class Tag extends AbstractEntity
     /**
      * Sets the tag
      *
-     * @param  string  $tag
+     * @param string $tag
      */
-    public function setTag($tag): void
+    public function setTag(string $tag): void
     {
         $this->tag = $tag;
     }

@@ -15,7 +15,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2020-2023 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2024 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  *
  ***/
 
@@ -28,16 +28,16 @@ class Question extends AbstractEntity
      * The question
      *
      * @var string
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected string $question = '';
 
     /**
      * The answer
      *
      * @var string
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected string $answer = '';
 
     /**
@@ -51,8 +51,8 @@ class Question extends AbstractEntity
      * Tags
      *
      * @var ObjectStorage<Tag>
-     * @Extbase\ORM\Lazy
      */
+    #[Extbase\ORM\Lazy]
     protected ObjectStorage $tags;
 
     /**

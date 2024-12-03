@@ -49,6 +49,9 @@
 			<trans-unit id="tx_ot_faq_list.description" resname="tx_ot_faq_list.description">
 				<source>FAQ: Show a list of questions &amp; answers.</source>
 			</trans-unit>
+			<trans-unit id="flexform.sheetTitle" resname="flexform.sheetTitle">
+				<source>General</source>
+			</trans-unit>
 			<trans-unit id="flexform.disableStructuredData.label" resname="flexform.disableStructuredData.label">
 				<source>Disable Stuctured Data (JSON)</source>
 			</trans-unit>

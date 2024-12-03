@@ -66,6 +66,10 @@
 				<source>FAQ: Shows a list of questions &amp; answers.</source>
 				<target>FAQ: Zeigt eine Liste mit Fragen &amp; Antworten.</target>
 			</trans-unit>
+			<trans-unit id="flexform.sheetTitle" resname="flexform.sheetTitle">
+				<source>General</source>
+				<target>Allgemein</target>
+			</trans-unit>
 			<trans-unit id="flexform.disableStructuredData.label" resname="flexform.disableStructuredData.label">
 				<source>Disable Stuctured Data (JSON)?</source>
 				<target>Ausgabe der Strukturierten Daten deaktivieren?</target>

@@ -16,7 +16,7 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  * This file is part of the "FAQ" Extension for TYPO3 CMS.
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
- *  (c) 2020-2023 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2024 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  ***/
 
 /**
@@ -24,7 +24,9 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class QuestionController extends ActionController
 {
-    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj) {}
+    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj)
+    {
+    }
 
     /**
      * action list
@@ -33,10 +35,9 @@ class QuestionController extends ActionController
      */
     public function listAction(): ResponseInterface
     {
-        // Wrong error message "Replace calls to `getContentObject()` with `getContentObjectRenderer()`." in extension scanner!
         $currentContentObject = null;
-        if ($this->configurationManager->getContentObject() !== null) {
-            $currentContentObject = $this->configurationManager->getContentObject()->data;
+        if ($this->request->getAttribute('currentContentObject') !== null) {
+            $currentContentObject = $this->request->getAttribute('currentContentObject')->data;
         }
         $this->view->assign('data', $currentContentObject);
 
@@ -67,7 +68,7 @@ class QuestionController extends ActionController
             if ($conf['parameter'] !== '') {
                 $label = (string)LocalizationUtility::translate(
                     'button.more.json',
-                    'ot_faq'
+                    'OtFaq'
                 );
                 $link = '<p>' . $this->cObj->typoLink($label, $conf) . '</p>';
             }

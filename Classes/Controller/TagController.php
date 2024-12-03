@@ -16,7 +16,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2020-2021 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2024 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  *
  ***/
 
@@ -30,9 +30,9 @@ class TagController extends ActionController
      *
      * @var TagRepository
      */
-    protected TagRepository $tagRepository;
+    protected $tagRepository;
 
-    public function injectTagRepository(TagRepository $tagRepository): void
+    public function __construct(TagRepository $tagRepository)
     {
         $this->tagRepository = $tagRepository;
     }

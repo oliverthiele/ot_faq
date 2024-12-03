@@ -13,11 +13,13 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2020-2023 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2024 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  *
  ***/
 
 /**
  * The repository for Questions
  */
-class TagRepository extends Repository {}
+class TagRepository extends Repository
+{
+}
