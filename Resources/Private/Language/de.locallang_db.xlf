@@ -5,6 +5,10 @@
 		  product-name="ot_faq">
 		<header/>
 		<body>
+			<trans-unit id="wizard.header" resname="wizard.header">
+				<source>Extras</source>
+				<target>Extras</target>
+			</trans-unit>
 			<trans-unit id="tx_otfaq_domain_model_question" resname="tx_otfaq_domain_model_question">
 				<source>Question</source>
 				<target>Frage</target>

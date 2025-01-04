@@ -1,5 +1,6 @@
 mod {
-  wizards.newContentElement.wizardItems.plugins {
+  wizards.newContentElement.wizardItems.extras {
+    header =  LLL:EXT:ot_cefluidtemplates/Resources/Private/Language/locallang_db.xlf:wizard.header
     elements {
       list {
         iconIdentifier = ot-faq-plugin
