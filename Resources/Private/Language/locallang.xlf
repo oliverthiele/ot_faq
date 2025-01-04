@@ -14,8 +14,7 @@
 			<trans-unit id="tx_otfaq_domain_model_question.answer" resname="tx_otfaq_domain_model_question.answer">
 				<source>Answer</source>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.related_questions"
-						resname="tx_otfaq_domain_model_question.related_questions">
+			<trans-unit id="tx_otfaq_domain_model_question.related_questions" resname="tx_otfaq_domain_model_question.related_questions">
 				<source>Related Questions</source>
 			</trans-unit>
 			<trans-unit id="tx_otfaq_domain_model_question.tags" resname="tx_otfaq_domain_model_question.tags">

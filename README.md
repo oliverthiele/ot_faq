@@ -1,6 +1,6 @@
 # FAQ-Extension
 
-This extension for TYPO3 v12.x allows the output of structured data for a FAQPage.
+This extension for TYPO3 allows the output of structured data for a FAQPage.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Install the TYPO3 extension with
 composer require oliverthiele/ot-faq
 ```
 
-and add the TypoScript in your root Template or in your sitepackage:
+and add the TypoScript in your root Template or in your site package extension:
 
 ### Constants:
 
@@ -37,6 +37,12 @@ https://developers.google.com/search/docs/advanced/structured-data/faqpage)
 
 By default, the FAQ list HTML output (Bootstrap5 based template) also generates the structured
 data output in JSON format.
+
+**New in v4.0.0**
+
+All TCA configuration is now optimized for TYPO3 v13. The Extension is now registered as CType instead of list_type.
+Please use the upgrade wizard to update your existing content elements.
+
 
 **New in v3.0.0**
 

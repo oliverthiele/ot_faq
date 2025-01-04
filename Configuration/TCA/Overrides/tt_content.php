@@ -11,17 +11,23 @@ $pluginSignature = ExtensionUtility::registerPlugin(
     'OtFaq',
     'List',
     'FAQ',
-    'EXT:ot_faq/Resources/Public/Icons/question.svg'
+    'icon-ot-faq',
+    'extras',
+    'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_list.description'
 );
-
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['otfaq_list'] = 'recursive';
 
 /**
  * Register Flexform
  */
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['otfaq_list'] = 'pi_flexform';
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;Configuration,pi_flexform,',
+    $pluginSignature,
+    'after:subheader',
+);
 
 ExtensionManagementUtility::addPiFlexFormValue(
-    $pluginSignature,
-    'FILE:EXT:ot_faq/Configuration/FlexForms/FlexForm.xml'
+    '*',
+    'FILE:EXT:ot_faq/Configuration/FlexForms/FlexForm.xml',
+    $pluginSignature
 );

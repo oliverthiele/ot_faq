@@ -1,8 +1,10 @@
 <?php
 
+$ll = 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_question',
+        'title' => $ll . 'tx_otfaq_domain_model_question',
         'label' => 'question',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,7 +20,7 @@ return [
         ],
         'sortby' => 'sorting',
         'searchFields' => 'question',
-        'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/question.svg',
+        'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/OtFaq.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
@@ -111,7 +113,7 @@ return [
         ],
         'question' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_question.question',
+            'label' => $ll . 'tx_otfaq_domain_model_question.question',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -175,7 +177,7 @@ return [
         ],
         'tags' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_question.tags',
+            'label' => $ll . 'tx_otfaq_domain_model_question.tags',
             'config' => [
                 'type' => 'group',
                 'allowed' => 'tx_otfaq_domain_model_tag',
@@ -195,7 +197,7 @@ return [
                 'suggestOptions' => [
                     'default' => [
                         'additionalSearchFields' => 'tag',
-                        //                        'addWhere' => 'AND pages.doktype = 1'
+                        // 'addWhere' => 'AND pages.doktype = 1'
                     ],
                 ],
             ],

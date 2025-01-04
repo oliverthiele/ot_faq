@@ -3,8 +3,8 @@ mod {
     elements {
       list {
         iconIdentifier = ot-faq-plugin
-        title = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_ot_faq_list.name
-        description = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_ot_faq_list.description
+        title = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_list.name
+        description = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_list.description
         tt_content_defValues {
           CType = list
           list_type = otfaq_list

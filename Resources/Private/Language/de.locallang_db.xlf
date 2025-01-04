@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file source-language="en" target-language="de" datatype="plaintext"
-		  original="EXT:ot_faq/Resources/Private/Language/locallang_db.xlf" date="2020-06-04T08:43:24Z"
+		  original="EXT:ot_faq/Resources/Private/Language/locallang_db.xlf" date="2025-01-03T13:31:24Z"
 		  product-name="ot_faq">
 		<header/>
 		<body>
@@ -17,8 +17,7 @@
 				<source>Answer</source>
 				<target>Antwort</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.answer.description"
-						resname="tx_otfaq_domain_model_question.answer.description">
+			<trans-unit id="tx_otfaq_domain_model_question.answer.description" resname="tx_otfaq_domain_model_question.answer.description">
 				<source><![CDATA[
 				Valid HTML tags include <h1> to <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <div>, <b>, <strong>, <i> and <em>.
 				Advertising is not permitted at this point!
@@ -32,8 +31,7 @@
 				<source>Link</source>
 				<target>Link</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.link.description"
-						resname="tx_otfaq_domain_model_question.link.description">
+			<trans-unit id="tx_otfaq_domain_model_question.link.description" resname="tx_otfaq_domain_model_question.link.description">
 				<source><![CDATA[
 				The optional link can point to a page where the question is answered in detail.
 				]]></source>
@@ -41,8 +39,7 @@
 				Der optionale Link kann auf eine Seite verweisen, auf der die Frage im Detail beantwortet wird.
 				]]></target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.related_questions"
-						resname="tx_otfaq_domain_model_question.related_questions">
+			<trans-unit id="tx_otfaq_domain_model_question.related_questions" resname="tx_otfaq_domain_model_question.related_questions">
 				<source>Related Questions</source>
 				<target>Verwandte Fragen</target>
 			</trans-unit>
@@ -58,13 +55,13 @@
 				<source>Tag</source>
 				<target>Tag</target>
 			</trans-unit>
-			<trans-unit id="tx_ot_faq_list.name" resname="tx_ot_faq_list.name">
+			<trans-unit id="tx_otfaq_list.name" resname="tx_otfaq_list.name">
 				<source>FAQ</source>
 				<target>FAQ</target>
 			</trans-unit>
-			<trans-unit id="tx_ot_faq_list.description" resname="tx_ot_faq_list.description">
-				<source>FAQ: Shows a list of questions &amp; answers.</source>
-				<target>FAQ: Zeigt eine Liste mit Fragen &amp; Antworten.</target>
+			<trans-unit id="tx_otfaq_list.description" resname="tx_otfaq_list.description">
+				<source>Accordion with questions &amp; answers.</source>
+				<target>Accordion mit Fragen &amp; Antworten.</target>
 			</trans-unit>
 			<trans-unit id="flexform.sheetTitle" resname="flexform.sheetTitle">
 				<source>General</source>
