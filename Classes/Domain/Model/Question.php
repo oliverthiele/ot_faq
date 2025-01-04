@@ -15,7 +15,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2020-2024 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
+ *  (c) 2020-2025 Oliver Thiele <mail@oliver-thiele.de>, Web Development Oliver Thiele
  *
  ***/
 

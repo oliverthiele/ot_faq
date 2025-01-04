@@ -71,6 +71,7 @@
                                     <label>
                                         LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.accordionFlush.title
                                     </label>
+                                    <value></value>
                                 </numIndex>
                             </items>
                         </config>
@@ -90,6 +91,7 @@
                                     <label>
                                         LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:flexform.alwaysOpen.title
                                     </label>
+                                    <value></value>
                                 </numIndex>
                             </items>
                         </config>

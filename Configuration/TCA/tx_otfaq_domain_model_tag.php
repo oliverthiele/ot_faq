@@ -1,8 +1,10 @@
 <?php
 
+$ll = 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:';
+
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_tag',
+        'title' => $ll . 'tx_otfaq_domain_model_tag',
         'label' => 'tag',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -20,7 +22,8 @@ return [
         'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/tag.svg',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tag, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, tag,
+        --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -90,7 +93,7 @@ return [
         ],
         'tag' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_domain_model_tag.tag',
+            'label' => $ll . 'tx_otfaq_domain_model_tag.tag',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

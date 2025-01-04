@@ -3,8 +3,8 @@
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 
 return [
-    'ot-faq-plugin' => [
+    'icon-ot-faq' => [
         'provider' => SvgIconProvider::class,
-        'source' => 'EXT:ot_faq/Resources/Public/Icons/question.svg',
+        'source' => 'EXT:ot_faq/Resources/Public/Icons/OtFaq.svg',
     ],
 ];
