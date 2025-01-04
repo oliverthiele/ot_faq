@@ -1,22 +1,3 @@
-mod {
-  wizards.newContentElement.wizardItems.extras {
-    header =  LLL:EXT:ot_cefluidtemplates/Resources/Private/Language/locallang_db.xlf:wizard.header
-    elements {
-      list {
-        iconIdentifier = ot-faq-plugin
-        title = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_list.name
-        description = LLL:EXT:ot_faq/Resources/Private/Language/locallang_db.xlf:tx_otfaq_list.description
-        tt_content_defValues {
-          CType = list
-          list_type = otfaq_list
-        }
-      }
-    }
-
-    show = *
-  }
-}
-
 // Feature is not ready yet
 TCEFORM.tx_otfaq_domain_model_question.tags.disabled = 1
 TCEFORM.tx_otfaq_domain_model_question.related_questions.disabled = 1
