@@ -39,7 +39,7 @@ class QuestionRepository extends Repository
      * @param array<int>|null $pages
      * @return QueryResultInterface
      */
-    public function findAll(array $pages = null): QueryResultInterface
+    public function findAll(?array $pages = null): QueryResultInterface
     {
         $query = $this->createQuery();
         $querySettings = $query->getQuerySettings();
