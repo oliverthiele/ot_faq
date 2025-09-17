@@ -18,6 +18,7 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        'hideTable' => true,
         'searchFields' => 'tag',
         'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/tag.svg',
     ],
