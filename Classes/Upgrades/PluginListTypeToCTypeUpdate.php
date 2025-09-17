@@ -13,7 +13,7 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
     protected function getListTypeToCTypeMapping(): array
     {
         return [
-            'otfaq_list' => 'otfaq_list'
+            'otfaq_list' => 'otfaq_list',
         ];
     }
 

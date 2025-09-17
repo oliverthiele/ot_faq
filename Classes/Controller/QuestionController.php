@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace OliverThiele\OtFaq\Controller;
 
-use JsonException;
 use OliverThiele\OtFaq\Domain\Model\Question;
 use OliverThiele\OtFaq\Domain\Repository\QuestionRepository;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +23,12 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class QuestionController extends ActionController
 {
-    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj)
-    {
-    }
+    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj) {}
 
     /**
      * action list
      *
-     * @throws JsonException
+     * @throws \JsonException
      */
     public function listAction(): ResponseInterface
     {
