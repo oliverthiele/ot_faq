@@ -4,47 +4,47 @@
 		  original="EXT:ot_faq/Resources/Private/Language/locallang.xlf" date="2021-07-06T13:43:24Z" product-name="ot_faq">
 		<header/>
 		<body>
-			<trans-unit id="tx_otfaq_domain_model_question" resname="tx_otfaq_domain_model_question">
+			<trans-unit id="tx_otfaq_domain_model_question" resname="tx_otfaq_domain_model_question" approved="yes">
 				<source>Question</source>
 				<target>Frage</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.question" resname="tx_otfaq_domain_model_question.question">
+			<trans-unit id="tx_otfaq_domain_model_question.question" resname="tx_otfaq_domain_model_question.question" approved="yes">
 				<source>Question</source>
 				<target>Frage</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.answer" resname="tx_otfaq_domain_model_question.answer">
+			<trans-unit id="tx_otfaq_domain_model_question.answer" resname="tx_otfaq_domain_model_question.answer" approved="yes">
 				<source>Answer</source>
 				<target>Antwort</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.related_questions" resname="tx_otfaq_domain_model_question.related_questions">
+			<trans-unit id="tx_otfaq_domain_model_question.related_questions" resname="tx_otfaq_domain_model_question.related_questions" approved="yes">
 				<source>Related Questions</source>
 				<target>Verwandte Fragen</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.tags" resname="tx_otfaq_domain_model_question.tags">
+			<trans-unit id="tx_otfaq_domain_model_question.tags" resname="tx_otfaq_domain_model_question.tags" approved="yes">
 				<source>Tags</source>
 				<target>Tags</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_answer" resname="tx_otfaq_domain_model_answer">
+			<trans-unit id="tx_otfaq_domain_model_answer" resname="tx_otfaq_domain_model_answer" approved="yes">
 				<source>Answer</source>
 				<target>Antwort</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_answer.answer" resname="tx_otfaq_domain_model_answer.answer">
+			<trans-unit id="tx_otfaq_domain_model_answer.answer" resname="tx_otfaq_domain_model_answer.answer" approved="yes">
 				<source>Answer</source>
 				<target>Antwort</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_tag" resname="tx_otfaq_domain_model_tag">
+			<trans-unit id="tx_otfaq_domain_model_tag" resname="tx_otfaq_domain_model_tag" approved="yes">
 				<source>Tag</source>
 				<target>Tag</target>
 			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_tag.tag" resname="tx_otfaq_domain_model_tag.tag">
+			<trans-unit id="tx_otfaq_domain_model_tag.tag" resname="tx_otfaq_domain_model_tag.tag" approved="yes">
 				<source>Tag</source>
 				<target>Tag</target>
 			</trans-unit>
-			<trans-unit id="button.more" resname="button.more">
+			<trans-unit id="button.more" resname="button.more" approved="yes">
 				<source>More</source>
 				<target>Mehr</target>
 			</trans-unit>
-			<trans-unit id="button.more.json" resname="button.more.json">
+			<trans-unit id="button.more.json" resname="button.more.json" approved="yes">
 				<source>read more</source>
 				<target>weiterlesen</target>
 			</trans-unit>
