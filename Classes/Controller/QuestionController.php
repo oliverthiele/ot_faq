@@ -7,6 +7,7 @@ namespace OliverThiele\OtFaq\Controller;
 use OliverThiele\OtFaq\Domain\Model\Question;
 use OliverThiele\OtFaq\Domain\Repository\QuestionRepository;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -26,65 +27,68 @@ class QuestionController extends ActionController
     public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj) {}
 
     /**
-     * action list
+     * ## List action
      *
-     * @throws \JsonException
+     * Renders the FAQ list and embeds JSON-LD structured data.
+     *
+     * Retrieves the current tt_content record to determine optional starting pages,
+     * fetches all matching Question records, and assigns them to the Fluid view.
+     * In addition, it generates a valid Schema.org FAQPage JSON-LD object for
+     * search engines and injects it into the rendered template.
+     *
+     * @return ResponseInterface HTTP response containing the rendered HTML output
+     *                           with the structured data script tag.
+     * @throws \JsonException    If JSON encoding of the structured data fails.
      */
     public function listAction(): ResponseInterface
     {
-        $currentContentObject = null;
-        if ($this->request->getAttribute('currentContentObject') !== null) {
-            $currentContentObject = $this->request->getAttribute('currentContentObject')->data;
-        }
-        $this->view->assign('data', $currentContentObject);
+        $cObj = $this->request->getAttribute('currentContentObject');
+        $cObjData = $cObj?->data ?? [];
 
-        $pages = null;
-        if (!isset($currentContentObject['pages']) || $currentContentObject['pages'] === '') {
-            $questions = $this->questionRepository->findAll();
-        } else {
-            $pagesArray = explode(',', (string)$currentContentObject['pages']);
-            foreach ($pagesArray as $page) {
-                $pages[] = (int)$page;
-            }
-            $questions = $this->questionRepository->findAll($pages);
+        $this->view->assign('data', $cObjData);
+
+        // pages field as an integer array (automatically clears invalid entries)
+        // use pages from Flexform/DB if set, otherwise fall back to the current content element pid
+        $pages = GeneralUtility::intExplode(',', (string)($cObjData['pages'] ?? ''), true);
+
+        if (empty($pages) && !empty($cObjData['pid'])) {
+            $pages = [(int)$cObjData['pid']];
         }
+        $questions = $this->questionRepository->findAll($pages);
 
         $this->view->assign('questions', $questions);
 
         $questionArray = [];
-
         /** @var Question $question */
         foreach ($questions as $question) {
             $conf = [
                 'parameter' => $question->getLink(),
-                'useCashHash' => false,
                 'forceAbsoluteUrl' => true,
             ];
-
             $link = '';
             if ($conf['parameter'] !== '') {
-                $label = (string)LocalizationUtility::translate(
-                    'button.more.json',
-                    'OtFaq'
-                );
+                $label = (string)LocalizationUtility::translate('button.more.json', 'OtFaq');
                 $link = '<p>' . $this->cObj->typoLink($label, $conf) . '</p>';
             }
-
             $questionArray[] = [
                 '@type' => 'Question',
                 'name' => $question->getQuestion(),
                 'acceptedAnswer' => [
-                    '@type' => 'answer',
+                    '@type' => 'Answer',
                     'text' => $question->getAnswer() . $link,
                 ],
             ];
         }
-        $array = [
-            '@context' => 'https://schema.org',
-            '@type' => 'FAQPage',
-            'mainEntity' => $questionArray,
-        ];
-        $json = json_encode($array, JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE);
+
+        $json = json_encode(
+            [
+                '@context' => 'https://schema.org',
+                '@type' => 'FAQPage',
+                'mainEntity' => $questionArray,
+            ],
+            JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE
+        );
+
         $this->view->assign('json', $json);
 
         return $this->responseFactory->createResponse()

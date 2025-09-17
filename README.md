@@ -1,16 +1,16 @@
 # FAQ-Extension
 
-This extension for TYPO3 allows the output of structured data for a FAQPage.
+This TYPO3 extension outputs structured data for an FAQPage.
 
 ## Installation
 
-Install the TYPO3 extension with
+Install the extension via Composer:
 
 ```shell
 composer require oliverthiele/ot-faq
 ```
 
-and add the TypoScript in your root Template or in your site package extension:
+Then include the TypoScript in your root template or site-package extension:
 
 ### Constants:
 
@@ -23,57 +23,73 @@ and add the TypoScript in your root Template or in your site package extension:
 @import "EXT:ot_faq/Configuration/TypoScript/setup.typoscript"
 ```
 
-**Don't forget to update the database structure!**
+**Don’t forget to update the database schema!**
 
 
-## How to add FAQs
+## Adding FAQs
 
-The FAQ plugin can be added once per page. (I have deliberately decided not to use
-IRRE). With the plugin only the headline is output and the position for the FAQs is defined.
-In the TYPO3 BE modul "list" the questions with the answers can then be added.
-Here are the rules from the Google documentation must be observed:
-[https://developers.google.com/search/docs/advanced/structured-data/faqpage](
-https://developers.google.com/search/docs/advanced/structured-data/faqpage)
+Add the FAQ plugin once per page.
+(I deliberately decided not to use IRRE.)
+The plugin outputs only the headline and defines the position where the FAQs appear.
+In the TYPO3 List module you can then create the individual questions and answers.
 
-By default, the FAQ list HTML output (Bootstrap5 based template) also generates the structured
-data output in JSON format.
+Be sure to follow the [Google FAQPage guidelines](https://developers.google.com/search/docs/advanced/structured-data/faqpage)
+
+By default, the Bootstrap-5–based template renders both the FAQ list and the structured data in JSON-LD format.
+
+
+**New in v4.0.1**
+
+- Supports TYPO3 site sets.
+- PHP 8.4 compatibility.
+- No more deprecated TYPO3 function calls.
+- The DB field `pages` can again be used for storing FAQs.
 
 **New in v4.0.0**
 
-All TCA configuration is now optimized for TYPO3 v13. The Extension is now registered as CType instead of list_type.
-Please use the upgrade wizard to update your existing content elements.
+- TCA configuration optimized for TYPO3 v13.
+- The extension is now registered as a **CType** instead of `list_type`.
 
+  Use the upgrade wizard to update existing content elements.
 
 **New in v3.0.0**
 
-All TCA configuration is now optimized for TYPO3 v12.
+- TCA configuration optimized for TYPO3 v12.
 
 **New in v2.0.5:**
 
-The storagePid (DB field pages) can now be used in the plugin.
-**Please make sure that no FAQ is output twice.**
-If you want to output FAQs on more than one page, you should deactivate the output of structured data
-via checkbox on one page.
+- The storagePid (`pages` field) can now be used in the plugin.
 
-## General notes about the FAQs
+  **Make sure no FAQ is output twice.**
+
+  If you need to display FAQs on multiple pages, disable structured-data output
+  via the checkbox on one of those pages.
+
+
+## General Notes
+
+- Each question should be unique across the entire site.
+- Every question must stand on its own and not refer to others.
+- Write questions exactly as a user might ask them (e.g. to Alexa or Siri).
+
 
 * Questions should be unique on the whole website.
 * Each question should stand on its own and not refer to the other questions.
 * Questions should be written exactly as they would be asked to Alexa or Siri.
 
 
-## Planned improvements.
+## Planned Improvements
 
-* Add an RTE configuration where only the allowed HTML tags can be used.
+- Add an RTE configuration that allows only a restricted set of HTML tags.
 
 ## Changes
 
 ### v3.0.0
 
-* Removed support for TYPO3 v11
+- Dropped support for TYPO3 v11.
 
 ### v2.0.5
 
-* Add Support for TYPO3 v12
-* Add support for storing FAQ in folders.
-* Improved code quality
+- Added TYPO3 v12 support.
+- Added support for storing FAQs in folders.
+- Improved code quality.

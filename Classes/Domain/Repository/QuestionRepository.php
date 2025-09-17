@@ -29,30 +29,22 @@ class QuestionRepository extends Repository
      */
     protected $defaultOrderings = [
         // todo If the FAQ is read from different pages, sorting does not fit.
-        //        'pid' => QueryInterface::ORDER_DESCENDING,
         'sorting' => QueryInterface::ORDER_ASCENDING,
     ];
 
     /**
-     * Returns all objects of this repository.
+     * Finds and retrieves all records based on the specified criteria.
      *
-     * @param array<int>|null $pages
-     * @return QueryResultInterface
+     * @param array<int>|null $pages Optional array of page IDs to filter the query by specific storage pages.
+     * @return QueryResultInterface The result of the query execution containing the retrieved records.
      */
     public function findAll(?array $pages = null): QueryResultInterface
     {
         $query = $this->createQuery();
-        $querySettings = $query->getQuerySettings();
-
         if ($pages !== null) {
-            $querySettings->setStoragePageIds($pages);
-        } else {
-            $currentPid = (int)$GLOBALS['TSFE']->id;
-            $querySettings->setStoragePageIds([$currentPid]);
+            $query->getQuerySettings()->setStoragePageIds($pages);
         }
-
-        $this->setDefaultQuerySettings($querySettings);
-
         return $query->execute();
     }
+
 }

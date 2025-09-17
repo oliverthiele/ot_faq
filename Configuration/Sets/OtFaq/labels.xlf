@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" datatype="plaintext"
+		  original="EXT:ot_faq/Configuration/Sets/OtFaq/labels.xlf"
+		  date="2025-09-17T18:18:00Z" product-name="ot_faq">
+		<header/>
+		<body>
+			<trans-unit id="label" resname="label">
+				<source>Content Element: FAQ</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
