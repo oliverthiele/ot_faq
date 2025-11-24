@@ -7,12 +7,9 @@
 </head>
 <body>
 
+<f:layout name="Default"/>
 
-<f:layout name="DefaultLayout"/>
-
-<f:section name="Header"/>
-
-<f:section name="Main">
+<f:section name="content">
     <f:flashMessages/>
     <f:if condition="{questions}">
         <div class="accordion{f:if(condition: '{settings.accordionFlush} == 1', then: ' accordion-flush')}"
