@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_faq'] = [
     'title' => 'FAQ',
     'description' => 'FAQ extension with output of structured data in JSON format.',
     'category' => 'plugin',

@@ -19,6 +19,9 @@
 		"ext-json": "*",
 		"typo3/cms-core": "^13.4.0"
 	},
+	"require-dev": {
+		"roave/security-advisories": "dev-latest"
+	},
 	"autoload": {
 		"psr-4": {
 			"OliverThiele\\OtFaq\\": "Classes"
