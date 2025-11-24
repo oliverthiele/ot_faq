@@ -1,13 +1,13 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_faq'] = [
     'title' => 'FAQ',
     'description' => 'FAQ extension with output of structured data in JSON format.',
     'category' => 'plugin',
     'author' => 'Oliver Thiele',
     'author_email' => 'mail@oliver-thiele.de',
     'state' => 'stable',
-    'version' => '4.0.1',
+    'version' => '4.1.0',
     'constraints' => [
         'depends' => [
             'typo3' => '13.4.0-13.4.99',

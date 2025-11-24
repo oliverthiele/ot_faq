@@ -1,10 +1,10 @@
 plugin.tx_otfaq {
   view {
-    templateRootPaths.0 = EXT:ot_faq/Resources/Private/Templates/
+    templateRootPaths.0 = EXT:ot_faq/Resources/Private/Templates/Bootstrap5/Templates/
     templateRootPaths.1 = {$plugin.tx_otfaq.view.templateRootPath}
-    partialRootPaths.0 = EXT:ot_faq/Resources/Private/Partials/
+    partialRootPaths.0 = EXT:ot_faq/Resources/Private/Templates/Bootstrap5/Partials/
     partialRootPaths.1 = {$plugin.tx_otfaq.view.partialRootPath}
-    layoutRootPaths.0 = EXT:ot_faq/Resources/Private/Layouts/
+    layoutRootPaths.0 = EXT:ot_faq/Resources/Private/Templates/Bootstrap5/Layouts/
     layoutRootPaths.1 = {$plugin.tx_otfaq.view.layoutRootPath}
   }
 
