@@ -1,0 +1,4 @@
+elements:
+  - ctype: otfaq_list
+    groups: [group_content_wide]
+    grid: { minCols: 6, requiresFullWidth: false }
