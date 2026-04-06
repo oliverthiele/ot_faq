@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [5.0.1] — 2026-04-06
+
+### Added
+
+- `IrreButtons.html` and `Icon.html` fallback partials shipped with ot_faq at partial index 0 — ensures buttons are
+  rendered even without any sitepackage configuration
+- Empty `Icon.html` in ot_faq overrides the Bootstrap Icons default (index 15, from ot_irrebuttons) so no
+  unstyled icon markup is output in projects that do not load Bootstrap Icons CSS
+- Full `IrreButtons.html` at index 0 as last-resort fallback in case ot_irrebuttons partials are unavailable
+
+### Changed
+
+- README: ot-irrebuttons integration section updated to document the three-level partial fallback hierarchy
+  (index 0 ot_faq → index 15 ot_irrebuttons → index 80 sitepackage)
+
+---
+
 ## [5.0.0] — 2026-04-06
 
 ### Added

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      lang="en" data-namespace-typo3-fluid="true">
+<head>
+    <meta charset="utf-8">
+    <title>Partial: IrreButtons</title>
+</head>
+<body>
+
+<f:comment> <!-- <![CDATA[
+    Minimal fallback for IrreButtons — used only if EXT:ot_irrebuttons is not installed
+    or its partial root path is not registered.
+    The full implementation (with icon support, alignment, Fancybox, etc.) is provided by
+    EXT:ot_irrebuttons/Resources/Private/Bootstrap5/Partials/IrreButtons.html (index 15).
+    Override this partial in your SitePackage at partialRootPaths.80 if needed.
+]]>	--> </f:comment>
+
+<f:section name="Main">
+    <f:for each="{irreButtons}" as="buttonData">
+        <f:alias map="{button: buttonData.data}">
+            <f:if condition="{button.link}">
+                <f:link.typolink parameter="{button.link}"
+                                 class="btn btn-link">
+                    {button.text}
+                </f:link.typolink>
+            </f:if>
+        </f:alias>
+    </f:for>
+</f:section>
+
+</body>
+</html>
