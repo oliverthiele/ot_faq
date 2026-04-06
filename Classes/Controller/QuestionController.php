@@ -33,7 +33,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3Fluid\Fluid\View\TemplateView;
 
 /***
  * This file is part of the "FAQ" Extension for TYPO3 CMS.
@@ -121,7 +120,6 @@ class QuestionController extends ActionController
 
         if (ExtensionManagementUtility::isLoaded('ot_irrebuttons')) {
             $this->enrichQuestionsWithIrreButtons($questions->toArray());
-            $this->addIrreButtonsPartialPath();
         }
 
         return $this->responseFactory->createResponse()
@@ -179,20 +177,4 @@ class QuestionController extends ActionController
         }
     }
 
-    /**
-     * Adds the ot_irrebuttons partial root path to the current view so that
-     * the IrreButtons partial can be resolved without a TypoScript condition.
-     */
-    private function addIrreButtonsPartialPath(): void
-    {
-        if (!$this->view instanceof TemplateView) {
-            return;
-        }
-        $templatePaths = $this->view->getRenderingContext()->getTemplatePaths();
-        $partialRootPaths = $templatePaths->getPartialRootPaths();
-        $partialRootPaths[15] = GeneralUtility::getFileAbsFileName(
-            'EXT:ot_irrebuttons/Resources/Private/Bootstrap5/Partials/'
-        );
-        $templatePaths->setPartialRootPaths($partialRootPaths);
-    }
 }

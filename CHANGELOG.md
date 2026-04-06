@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [5.0.2] — 2026-04-06
+
+### Added
+
+- `Configuration/ExpressionLanguage.php` with custom `isLoaded()` TypoScript condition — allows conditional
+  TypoScript without a PHP controller workaround
+- `[isLoaded('ot_irrebuttons')]` condition in `setup.typoscript` registers `partialRootPaths.15` automatically;
+  integrators can override or reassign the index without touching PHP
+
+### Fixed
+
+- `instanceof \TYPO3Fluid\Fluid\View\TemplateView` check in `QuestionController` always returned `false` in
+  TYPO3 v13 — `$this->view` is a `FluidViewAdapter`, not a `TemplateView` directly; the controller now uses
+  the TypoScript condition instead of manipulating partial paths at runtime
+- `IrreButtons` partial was only rendered in one branch of the accordion open/closed condition; both branches
+  now use a shared `Links` section with `irreButtons` and `link` passed as explicit arguments
+- `{question.link}` in the `Links` section was out of scope; replaced with `{link}` argument
+
+---
+
 ## [5.0.1] — 2026-04-06
 
 ### Added
