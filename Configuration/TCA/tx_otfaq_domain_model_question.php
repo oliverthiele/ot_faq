@@ -131,7 +131,7 @@ return [
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
-                'richtextConfiguration' => 'default',
+                'richtextConfiguration' => 'otFaqAnswer',
                 'fieldControl' => [
                     'fullScreenRichtext' => [
                         'disabled' => false,
