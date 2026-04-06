@@ -112,9 +112,24 @@ When [`oliverthiele/ot-irrebuttons`](https://packagist.org/packages/oliverthiele
 - An **IRRE Buttons** field is added instead — each question can have one or more buttons with individual label, link,
   icon and style.
 - The controller loads the button records and sets them on the question model at runtime.
-- The template renders them via the `IrreButtons` partial from ot-irrebuttons.
+- The template renders them via the `IrreButtons` partial.
 
-To display the correct icons, add the ot-irrebuttons partial path to your sitepackage at a higher index than 15:
+### Partial path priority
+
+The extension uses a layered fallback for partial resolution:
+
+| Index | Source | Content |
+|-------|--------|---------|
+| **0** | `EXT:ot_faq` | Minimal `IrreButtons.html` + empty `Icon.html` (last resort) |
+| **15** | `EXT:ot_irrebuttons` | Full implementation with Bootstrap Icons |
+| **80** | Your SitePackage | Project-specific icon system (recommended) |
+
+No sitepackage configuration is required for basic button output. Icons will use Bootstrap Icon class names
+(`bi bi-*`) by default — only relevant if Bootstrap Icons CSS is loaded in your project.
+
+### Providing a custom icon renderer
+
+To replace the default Bootstrap Icons with your own icon system, add an `Icon.html` partial in your sitepackage:
 
 ```typoscript
 plugin.tx_otfaq {
@@ -126,7 +141,26 @@ plugin.tx_otfaq {
 }
 ```
 
-Then provide an `Icon.html` partial in that directory that matches your project's icon system.
+The partial receives `{iconIdentifier}` as an argument. Example using
+[`oliverthiele/ot-icons`](https://packagist.org/packages/oliverthiele/ot-icons):
+
+```html
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:i="http://typo3.org/ns/OliverThiele/OtIcons/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:section name="Main">
+    <i:icon identifier="{iconIdentifier}" aria-hidden="true"/>
+</f:section>
+</html>
+```
+
+Or using Bootstrap Icons directly (which is the default from ot-irrebuttons):
+
+```html
+<f:section name="Main">
+    <i class="bi bi-{iconIdentifier}"></i>
+</f:section>
+```
 
 ---
 
