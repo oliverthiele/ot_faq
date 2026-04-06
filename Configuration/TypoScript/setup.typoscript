@@ -5,6 +5,10 @@ lib.parseFuncOtFaqAnswer {
   nonTypoTagStdWrap.HTMLparser.allowTags = a,b,br,div,em,h2,h3,h4,i,li,ol,p,strong,ul
 }
 
+[isLoaded('ot_irrebuttons')]
+plugin.tx_otfaq.view.partialRootPaths.15 = EXT:ot_irrebuttons/Resources/Private/Bootstrap5/Partials/
+[end]
+
 plugin.tx_otfaq {
   view {
     templateRootPaths.0 = EXT:ot_faq/Resources/Private/Templates/Bootstrap5/Templates/

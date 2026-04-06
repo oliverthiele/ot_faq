@@ -41,18 +41,7 @@
                                  aria-labelledby="heading-{question.uid}">
                                 <div class="accordion-body">
                                     {question.answer -> f:format.html(parseFuncTSPath: 'lib.parseFuncOtFaqAnswer')}
-                                    <f:if condition="{question.irreButtons}">
-                                        <f:then>
-                                            <f:render partial="IrreButtons" section="Main" arguments="{data: data, irreButtons: question.irreButtons}"/>
-                                        </f:then>
-                                        <f:else>
-                                            <f:if condition="{question.link}">
-                                                <f:link.typolink parameter="{question.link}">
-                                                    <f:translate key="button.more" default="more"/>
-                                                </f:link.typolink>
-                                            </f:if>
-                                        </f:else>
-                                    </f:if>
+                                    <f:render section="Links" arguments="{data: data, irreButtons: question.irreButtons, link: question.link}"/>
                                 </div>
                             </div>
                         </f:then>
@@ -62,18 +51,7 @@
                                  aria-labelledby="heading-{question.uid}">
                                 <div class="accordion-body">
                                     {question.answer -> f:format.html(parseFuncTSPath: 'lib.parseFuncOtFaqAnswer')}
-                                    <f:if condition="{question.irreButtons}">
-                                        <f:then>
-                                            <f:render partial="IrreButtons" section="Main" arguments="{data: data, irreButtons: question.irreButtons}"/>
-                                        </f:then>
-                                        <f:else>
-                                            <f:if condition="{question.link}">
-                                                <f:link.typolink parameter="{question.link}">
-                                                    <f:translate key="button.more" default="more"/>
-                                                </f:link.typolink>
-                                            </f:if>
-                                        </f:else>
-                                    </f:if>
+                                    <f:render section="Links" arguments="{data: data, irreButtons: question.irreButtons, link: question.link}"/>
                                 </div>
                             </div>
                         </f:else>
@@ -89,5 +67,19 @@
     </f:if>
 </f:section>
 
+<f:section name="Links">
+    <f:if condition="{irreButtons}">
+        <f:then>
+           <f:render partial="IrreButtons" section="Main" arguments="{data: data, irreButtons: irreButtons}"/>
+        </f:then>
+        <f:else>
+            <f:if condition="{link}">
+                <f:link.typolink parameter="{link}">
+                    <f:translate key="button.more" default="more"/>
+                </f:link.typolink>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:section>
 </body>
 </html>
