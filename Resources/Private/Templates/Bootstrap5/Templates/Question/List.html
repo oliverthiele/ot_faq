@@ -40,11 +40,18 @@
                                  {f:if(condition: '{settings.alwaysOpen} != 1', then: 'data-bs-parent="#accordion-{data.uid}"')}
                                  aria-labelledby="heading-{question.uid}">
                                 <div class="accordion-body">
-                                    {question.answer -> f:format.html()}
-                                    <f:if condition="{question.link}">
-                                        <f:link.typolink parameter="{question.link}">
-                                            <f:translate key="button.more" default="more"/>
-                                        </f:link.typolink>
+                                    {question.answer -> f:format.html(parseFuncTSPath: 'lib.parseFuncOtFaqAnswer')}
+                                    <f:if condition="{question.irreButtons}">
+                                        <f:then>
+                                            <f:render partial="IrreButtons" section="Main" arguments="{data: data, irreButtons: question.irreButtons}"/>
+                                        </f:then>
+                                        <f:else>
+                                            <f:if condition="{question.link}">
+                                                <f:link.typolink parameter="{question.link}">
+                                                    <f:translate key="button.more" default="more"/>
+                                                </f:link.typolink>
+                                            </f:if>
+                                        </f:else>
                                     </f:if>
                                 </div>
                             </div>
@@ -54,11 +61,18 @@
                                  {f:if(condition: '{settings.alwaysOpen} != 1', then: 'data-bs-parent="#accordion-{data.uid}"')}
                                  aria-labelledby="heading-{question.uid}">
                                 <div class="accordion-body">
-                                    {question.answer -> f:format.html()}
-                                    <f:if condition="{question.link}">
-                                        <f:link.typolink parameter="{question.link}">
-                                            <f:translate key="button.more" default="more"/>
-                                        </f:link.typolink>
+                                    {question.answer -> f:format.html(parseFuncTSPath: 'lib.parseFuncOtFaqAnswer')}
+                                    <f:if condition="{question.irreButtons}">
+                                        <f:then>
+                                            <f:render partial="IrreButtons" section="Main" arguments="{data: data, irreButtons: question.irreButtons}"/>
+                                        </f:then>
+                                        <f:else>
+                                            <f:if condition="{question.link}">
+                                                <f:link.typolink parameter="{question.link}">
+                                                    <f:translate key="button.more" default="more"/>
+                                                </f:link.typolink>
+                                            </f:if>
+                                        </f:else>
                                     </f:if>
                                 </div>
                             </div>

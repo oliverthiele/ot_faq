@@ -82,6 +82,14 @@ class Question extends AbstractEntity
     protected string $link = '';
 
     /**
+     * IRRE button records from ot_irrebuttons, set at runtime by the controller.
+     * Not persisted — transient runtime data only.
+     *
+     * @var list<array{data: array<string, mixed>}>
+     */
+    protected array $irreButtons = [];
+
+    /**
      * __construct
      */
     public function __construct()
@@ -210,5 +218,21 @@ class Question extends AbstractEntity
     public function setLink(string $link): void
     {
         $this->link = $link;
+    }
+
+    /**
+     * @return list<array{data: array<string, mixed>}>
+     */
+    public function getIrreButtons(): array
+    {
+        return $this->irreButtons;
+    }
+
+    /**
+     * @param list<array{data: array<string, mixed>}> $irreButtons
+     */
+    public function setIrreButtons(array $irreButtons): void
+    {
+        $this->irreButtons = $irreButtons;
     }
 }
