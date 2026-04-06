@@ -33,6 +33,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3Fluid\Fluid\View\TemplateView;
 
 /***
  * This file is part of the "FAQ" Extension for TYPO3 CMS.
@@ -136,7 +137,13 @@ class QuestionController extends ActionController
      */
     private function enrichQuestionsWithIrreButtons(array $questions): void
     {
-        $questionUids = array_map(static fn(Question $question): int => $question->getUid(), $questions);
+        $questionUids = [];
+        foreach ($questions as $question) {
+            $uid = $question->getUid();
+            if ($uid > 0) {
+                $questionUids[] = $uid;
+            }
+        }
 
         if (empty($questionUids)) {
             return;
@@ -178,6 +185,9 @@ class QuestionController extends ActionController
      */
     private function addIrreButtonsPartialPath(): void
     {
+        if (!$this->view instanceof TemplateView) {
+            return;
+        }
         $templatePaths = $this->view->getRenderingContext()->getTemplatePaths();
         $partialRootPaths = $templatePaths->getPartialRootPaths();
         $partialRootPaths[15] = GeneralUtility::getFileAbsFileName(
