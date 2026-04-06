@@ -1,3 +1,10 @@
+# Custom parseFunc for FAQ answers — restricts output to Google FAQ structured data allowed tags.
+# See https://developers.google.com/search/docs/appearance/structured-data/faqpage
+lib.parseFuncOtFaqAnswer < lib.parseFunc_RTE
+lib.parseFuncOtFaqAnswer {
+  nonTypoTagStdWrap.HTMLparser.allowTags = a,b,br,div,em,h2,h3,h4,i,li,ol,p,strong,ul
+}
+
 plugin.tx_otfaq {
   view {
     templateRootPaths.0 = EXT:ot_faq/Resources/Private/Templates/Bootstrap5/Templates/

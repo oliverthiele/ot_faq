@@ -1,95 +1,187 @@
-# FAQ-Extension
+# OT FAQ — TYPO3 FAQ Extension with Structured Data
 
-This TYPO3 extension outputs structured data for an FAQPage.
+A FAQ extension for TYPO3 v13 that renders an accessible Bootstrap 5 accordion and automatically outputs valid *
+*Schema.org FAQPage JSON-LD** structured data for Google Rich Results.
+
+[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-faq.svg)](https://packagist.org/packages/oliverthiele/ot-faq)
+[![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-faq/php.svg)](https://php.net/)
+[![License](https://img.shields.io/packagist/l/oliverthiele/ot-faq.svg)](LICENSE)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](CHANGELOG.md)
+
+---
+
+## Features
+
+- **Schema.org FAQPage** — JSON-LD structured data generated automatically from question/answer records
+- **Bootstrap 5 accordion** — accessible, animated, with configurable initial state (first open / all closed)
+- **Restricted RTE** — custom CKEditor preset (`OtFaqAnswer`) limits the answer editor to HTML tags allowed by Google's
+  FAQ structured data specification
+- **Custom parseFunc** — `lib.parseFuncOtFaqAnswer` additionally strips disallowed tags on frontend output
+- **ot-irrebuttons integration** — when `oliverthiele/ot-irrebuttons` is installed, each question can have individual
+  buttons (icon, label, link) instead of a single link field
+- **Tags & categories** — questions can be tagged and categorised
+- **Related questions** — M:N relation between questions
+- **Storage page** — questions can be stored on a dedicated folder page; falls back to the plugin's own page
+- **SiteSet** — TypoScript is provided as a TYPO3 v13 SiteSet; no manual TypoScript includes required
+- **Structured data toggle** — disable JSON-LD output per content element (useful when the same FAQ is embedded on
+  multiple pages)
+
+---
+
+## Requirements
+
+| Requirement | Version |
+|-------------|---------|
+| TYPO3       | 13.4+   |
+| PHP         | 8.3+    |
+| Bootstrap   | 5.x     |
+
+---
 
 ## Installation
 
-Install the extension via Composer:
-
-```shell
+```bash
 composer require oliverthiele/ot-faq
 ```
 
-Then include the TypoScript in your root template or site-package extension:
+Then run the TYPO3 database analyser or setup command:
 
-### Constants:
-
-```typo3_typoscript
-@import "EXT:ot_faq/Configuration/TypoScript/constants.typoscript"
-```
-### Setup:
-
-```typo3_typoscript
-@import "EXT:ot_faq/Configuration/TypoScript/setup.typoscript"
+```bash
+# via DDEV:
+ddev typo3 extension:setup -e ot_faq
 ```
 
-**Don’t forget to update the database schema!**
+---
 
+## Configuration
 
-## Adding FAQs
+### 1. Add SiteSet
 
-Add the FAQ plugin once per page.
-(I deliberately decided not to use IRRE.)
-The plugin outputs only the headline and defines the position where the FAQs appear.
-In the TYPO3 List module you can then create the individual questions and answers.
+Include the SiteSet in your site configuration (`config/sites/yoursite/config.yaml`):
 
-Be sure to follow the [Google FAQPage guidelines](https://developers.google.com/search/docs/advanced/structured-data/faqpage)
+```yaml
+dependencies:
+    - oliverthiele/ot-faq
+```
 
-By default, the Bootstrap-5–based template renders both the FAQ list and the structured data in JSON-LD format.
+This automatically includes the TypoScript setup and constants — no manual `@import` needed.
 
+### 2. Add a FAQ content element
 
-**New in v4.0.1**
+In the TYPO3 backend, insert a **FAQ** content element (group: Extras) on the page where the FAQ should appear.
 
-- Supports TYPO3 site sets.
-- PHP 8.4 compatibility.
-- No more deprecated TYPO3 function calls.
-- The DB field `pages` can again be used for storing FAQs.
+The plugin outputs one accordion per content element. Questions are managed separately in the **List** module on the
+same page (or on a configured storage page).
 
-**New in v4.0.0**
+### 3. Create questions
 
-- TCA configuration optimized for TYPO3 v13.
-- The extension is now registered as a **CType** instead of `list_type`.
+In the **List** module, switch to the FAQ storage page and create `tx_otfaq_domain_model_question` records. Each record
+holds:
 
-  Use the upgrade wizard to update existing content elements.
+- **Question** — the question text (used as accordion header and JSON-LD `name`)
+- **Answer** — rich text, restricted to Google-allowed HTML tags
+- **Link** — optional fallback link shown below the answer (replaced by ot-irrebuttons buttons if that extension is
+  active)
+- **Related questions** — optional M:N relation
+- **Tags / Categories** — optional
 
-**New in v3.0.0**
+---
 
-- TCA configuration optimized for TYPO3 v12.
+## Google FAQ Guidelines
 
-**New in v2.0.5:**
+Follow
+the [Google FAQPage structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/faqpage):
 
-- The storagePid (`pages` field) can now be used in the plugin.
+- Each question must be unique across the entire site.
+- Every question must be self-contained — do not reference other questions.
+- Write questions exactly as a user might ask them (e.g. to a voice assistant).
+- If the same FAQ content element is embedded on multiple pages, disable JSON-LD output on all but one page via the *
+  *Disable structured data** checkbox in the FlexForm.
 
-  **Make sure no FAQ is output twice.**
+The answer field uses a restricted CKEditor preset that only allows the HTML tags Google permits in FAQ structured data:
+`a`, `b`, `br`, `div`, `em`, `h2`, `h3`, `h4`, `i`, `li`, `ol`, `p`, `strong`, `ul`
 
-  If you need to display FAQs on multiple pages, disable structured-data output
-  via the checkbox on one of those pages.
+---
 
+## ot-irrebuttons Integration (optional)
 
-## General Notes
+When [`oliverthiele/ot-irrebuttons`](https://packagist.org/packages/oliverthiele/ot-irrebuttons) is installed:
 
-- Each question should be unique across the entire site.
-- Every question must stand on its own and not refer to others.
-- Write questions exactly as a user might ask them (e.g. to Alexa or Siri).
+- The **Link** field is hidden from the question form.
+- An **IRRE Buttons** field is added instead — each question can have one or more buttons with individual label, link,
+  icon and style.
+- The controller loads the button records and sets them on the question model at runtime.
+- The template renders them via the `IrreButtons` partial from ot-irrebuttons.
 
+To display the correct icons, add the ot-irrebuttons partial path to your sitepackage at a higher index than 15:
 
-* Questions should be unique on the whole website.
-* Each question should stand on its own and not refer to the other questions.
-* Questions should be written exactly as they would be asked to Alexa or Siri.
+```typoscript
+plugin.tx_otfaq {
+    view {
+        partialRootPaths {
+            80 = EXT:your_sitepackage/Resources/Private/Extensions/OtIrrebuttons/Partials/
+        }
+    }
+}
+```
 
+Then provide an `Icon.html` partial in that directory that matches your project's icon system.
 
-## Planned Improvements
+---
 
-- Add an RTE configuration that allows only a restricted set of HTML tags.
+## Template Customisation
 
-## Changes
+The extension follows TYPO3's template override convention. Override paths in your sitepackage TypoScript:
 
-### v3.0.0
+```typoscript
+plugin.tx_otfaq {
+    view {
+        templateRootPaths.20 = EXT:your_sitepackage/Resources/Private/Templates/
+        partialRootPaths.20  = EXT:your_sitepackage/Resources/Private/Partials/
+        layoutRootPaths.20   = EXT:your_sitepackage/Resources/Private/Layouts/
+    }
+}
+```
 
-- Dropped support for TYPO3 v11.
+### Available template variables
 
-### v2.0.5
+| Variable      | Type                      | Description                                                                        |
+|---------------|---------------------------|------------------------------------------------------------------------------------|
+| `{questions}` | `ObjectStorage<Question>` | All question records for this content element                                      |
+| `{data}`      | `array`                   | The `tt_content` record of the current content element                             |
+| `{settings}`  | `array`                   | FlexForm settings (accordionFlush, initialView, alwaysOpen, disableStructuredData) |
+| `{json}`      | `string`                  | Pre-encoded JSON-LD string for the FAQPage schema                                  |
 
-- Added TYPO3 v12 support.
-- Added support for storing FAQs in folders.
-- Improved code quality.
+### Question model properties
+
+| Property           | Getter                  | Description                                                 |
+|--------------------|-------------------------|-------------------------------------------------------------|
+| `question`         | `getQuestion()`         | Question text                                               |
+| `answer`           | `getAnswer()`           | HTML answer (RTE, already processed)                        |
+| `link`             | `getLink()`             | Optional link (typolink format)                             |
+| `irreButtons`      | `getIrreButtons()`      | Button records from ot-irrebuttons (runtime, not persisted) |
+| `relatedQuestions` | `getRelatedQuestions()` | Related question records                                    |
+| `tags`             | `getTags()`             | Tag records                                                 |
+
+---
+
+## FlexForm Options
+
+| Option                      | Description                                                      |
+|-----------------------------|------------------------------------------------------------------|
+| **Storage page**            | PID of the page where question records are stored                |
+| **Accordion flush**         | Remove borders and rounded corners (Bootstrap `accordion-flush`) |
+| **Initial view**            | Open first question on page load, or start with all collapsed    |
+| **Always open**             | Allow multiple accordion items open simultaneously               |
+| **Disable structured data** | Suppress JSON-LD output for this content element                 |
+
+---
+
+## License
+
+GPL-2.0-or-later — see [LICENSE](LICENSE)
+
+## Author
+
+Oliver Thiele — [oliver-thiele.de](https://www.oliver-thiele.de)

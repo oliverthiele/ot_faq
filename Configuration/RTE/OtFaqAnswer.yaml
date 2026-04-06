@@ -1,0 +1,66 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/LinkBrowser.yaml" }
+
+# Restricted RTE preset for FAQ answers.
+# Only HTML elements allowed by Google's FAQ structured data specification are permitted:
+# https://developers.google.com/search/docs/appearance/structured-data/faqpage
+#
+# Protection layers:
+# 1. editor.config.toolbar  — restricts what the editor offers to the user
+# 2. editor.config.heading  — limits heading levels to h2–h4
+# 3. processing.allowTags   — TYPO3 HTMLparser strips disallowed tags on save (server-side)
+editor:
+  config:
+    toolbar:
+      items:
+        - bold
+        - italic
+        - softhyphen
+        - '|'
+        - heading
+        - '|'
+        - link
+        - '|'
+        - bulletedList
+        - numberedList
+        - '|'
+        - undo
+        - redo
+        - '|'
+        - sourceEditing
+
+    heading:
+      options:
+        - { model: 'paragraph', view: 'p', title: 'Paragraph' }
+        - { model: 'heading2', view: 'h2', title: 'Heading 2' }
+        - { model: 'heading3', view: 'h3', title: 'Heading 3' }
+        - { model: 'heading4', view: 'h4', title: 'Heading 4' }
+
+processing:
+  # Tags that are stored in the database — applied by TYPO3 HTMLparser on save.
+  # h1 is intentionally omitted (page structure, not content).
+  allowTags:
+    - a
+    - b
+    - br
+    - div
+    - em
+    - h2
+    - h3
+    - h4
+    - i
+    - li
+    - ol
+    - p
+    - strong
+    - ul
+
+  # Only store attributes relevant for these tags.
+  allowAttributes:
+    - href
+    - target
+    - rel
+    - class

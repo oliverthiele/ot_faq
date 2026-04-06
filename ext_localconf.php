@@ -5,6 +5,8 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['otFaqAnswer'] = 'EXT:ot_faq/Configuration/RTE/OtFaqAnswer.yaml';
+
 call_user_func(
     static function () {
         ExtensionUtility::configurePlugin(

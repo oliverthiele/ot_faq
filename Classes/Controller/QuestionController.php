@@ -23,13 +23,17 @@ declare(strict_types=1);
 
 namespace OliverThiele\OtFaq\Controller;
 
+use Doctrine\DBAL\ArrayParameterType;
 use OliverThiele\OtFaq\Domain\Model\Question;
 use OliverThiele\OtFaq\Domain\Repository\QuestionRepository;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3Fluid\Fluid\View\TemplateView;
 
 /***
  * This file is part of the "FAQ" Extension for TYPO3 CMS.
@@ -43,8 +47,11 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class QuestionController extends ActionController
 {
-    public function __construct(protected QuestionRepository $questionRepository, protected ContentObjectRenderer $cObj)
-    {
+    public function __construct(
+        protected QuestionRepository $questionRepository,
+        protected ContentObjectRenderer $cObj,
+        private readonly ConnectionPool $connectionPool,
+    ) {
     }
 
     /**
@@ -112,8 +119,80 @@ class QuestionController extends ActionController
 
         $this->view->assign('json', $json);
 
+        if (ExtensionManagementUtility::isLoaded('ot_irrebuttons')) {
+            $this->enrichQuestionsWithIrreButtons($questions->toArray());
+            $this->addIrreButtonsPartialPath();
+        }
+
         return $this->responseFactory->createResponse()
             ->withAddedHeader('Content-Type', 'text/html; charset=utf-8')
             ->withBody($this->streamFactory->createStream($this->view->render()));
+    }
+
+    /**
+     * Loads IRRE button records for a set of questions and sets them directly
+     * on each Question object via setIrreButtons().
+     *
+     * @param Question[] $questions
+     */
+    private function enrichQuestionsWithIrreButtons(array $questions): void
+    {
+        $questionUids = [];
+        foreach ($questions as $question) {
+            $uid = $question->getUid();
+            if ($uid > 0) {
+                $questionUids[] = $uid;
+            }
+        }
+
+        if (empty($questionUids)) {
+            return;
+        }
+
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_otirrebuttons_domain_model_button');
+
+        $rows = $queryBuilder
+            ->select('*')
+            ->from('tx_otirrebuttons_domain_model_button')
+            ->where(
+                $queryBuilder->expr()->in(
+                    'parent_id',
+                    $queryBuilder->createNamedParameter($questionUids, ArrayParameterType::INTEGER)
+                ),
+                $queryBuilder->expr()->eq(
+                    'parent_table',
+                    $queryBuilder->createNamedParameter('tx_otfaq_domain_model_question')
+                )
+            )
+            ->orderBy('parent_id', 'ASC')
+            ->addOrderBy('sorting', 'ASC')
+            ->executeQuery()
+            ->fetchAllAssociative();
+
+        $buttonsByQuestionUid = [];
+        foreach ($rows as $row) {
+            $buttonsByQuestionUid[(string)$row['parent_id']][] = ['data' => $row];
+        }
+
+        foreach ($questions as $question) {
+            $question->setIrreButtons($buttonsByQuestionUid[(string)$question->getUid()] ?? []);
+        }
+    }
+
+    /**
+     * Adds the ot_irrebuttons partial root path to the current view so that
+     * the IrreButtons partial can be resolved without a TypoScript condition.
+     */
+    private function addIrreButtonsPartialPath(): void
+    {
+        if (!$this->view instanceof TemplateView) {
+            return;
+        }
+        $templatePaths = $this->view->getRenderingContext()->getTemplatePaths();
+        $partialRootPaths = $templatePaths->getPartialRootPaths();
+        $partialRootPaths[15] = GeneralUtility::getFileAbsFileName(
+            'EXT:ot_irrebuttons/Resources/Private/Bootstrap5/Partials/'
+        );
+        $templatePaths->setPartialRootPaths($partialRootPaths);
     }
 }
