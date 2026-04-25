@@ -1,9 +1,9 @@
 # OT FAQ — TYPO3 FAQ Extension with Structured Data
 
-A FAQ extension for TYPO3 v13 that renders an accessible Bootstrap 5 accordion and automatically outputs valid *
-*Schema.org FAQPage JSON-LD** structured data for Google Rich Results.
+A FAQ extension for TYPO3 v13 and v14 that renders an accessible Bootstrap 5 accordion and automatically outputs valid
+**Schema.org FAQPage JSON-LD** structured data for Google Rich Results.
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-13.4%20%7C%2014.3-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-faq.svg)](https://packagist.org/packages/oliverthiele/ot-faq)
 [![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-faq/php.svg)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/oliverthiele/ot-faq.svg)](LICENSE)
@@ -31,11 +31,11 @@ A FAQ extension for TYPO3 v13 that renders an accessible Bootstrap 5 accordion a
 
 ## Requirements
 
-| Requirement | Version |
-|-------------|---------|
-| TYPO3       | 13.4+   |
-| PHP         | 8.3+    |
-| Bootstrap   | 5.x     |
+| Requirement | Version          |
+|-------------|------------------|
+| TYPO3       | `^13.4 \| ^14.3` |
+| PHP         | `>=8.3`          |
+| Bootstrap   | 5.x              |
 
 ---
 

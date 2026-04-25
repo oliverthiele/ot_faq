@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [6.0.0] — 2026-04-25
+
+### Added
+
+- TYPO3 v14.3 support (`^13.4||^14.3`)
+- `searchable: false` on `starttime`, `endtime`, and `link` TCA fields
+
+### Changed
+
+- Raise PHP minimum constraint to `>=8.3`
+- Drop TYPO3 v12 support
+
+---
+
 ## [5.0.2] — 2026-04-06
 
 ### Added
@@ -154,3 +168,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial public release for TYPO3 v11.5
+
+[Unreleased]: https://github.com/oliverthiele/ot-faq/compare/v6.0.0...HEAD
+[6.0.0]: https://github.com/oliverthiele/ot-faq/compare/v5.0.2...v6.0.0
+[5.0.2]: https://github.com/oliverthiele/ot-faq/compare/v5.0.1...v5.0.2
+[5.0.1]: https://github.com/oliverthiele/ot-faq/compare/v5.0.0...v5.0.1
+[5.0.0]: https://github.com/oliverthiele/ot-faq/compare/v4.1.1...v5.0.0
+[1.0.0]: https://github.com/oliverthiele/ot-faq/releases/tag/v1.0.0
