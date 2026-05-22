@@ -70,7 +70,7 @@ class QuestionController extends ActionController
     public function listAction(): ResponseInterface
     {
         $cObj = $this->request->getAttribute('currentContentObject');
-        $cObjData = $cObj->data ?? [];
+        $cObjData = $cObj instanceof ContentObjectRenderer ? (get_object_vars($cObj)['data'] ?? []) : [];
 
         $this->view->assign('data', $cObjData);
 
