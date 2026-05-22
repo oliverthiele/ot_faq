@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [6.0.1] — 2026-05-22
+
+### Fixed
+
+- Avoid TYPO3 Extension Scanner "Fetch of property data" weak warning in `QuestionController`;
+  replaced direct `->data` property access with `get_object_vars()` workaround
+
+---
+
 ## [6.0.0] — 2026-04-25
 
 ### Added
