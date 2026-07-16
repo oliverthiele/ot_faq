@@ -21,7 +21,6 @@ return [
             'endtime' => 'endtime',
         ],
         'sortby' => 'sorting',
-        'searchFields' => 'question',
         'iconfile' => 'EXT:ot_faq/Resources/Public/Icons/OtFaq.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
@@ -30,7 +29,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource,
-         question, answer, link, related_questions, tags,
+         question, answer, link, related_questions,
          --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
             --palette--;;hidden,
             --palette--;;access,
@@ -142,6 +141,7 @@ return [
                 'cols' => 40,
                 'rows' => 15,
                 'eval' => 'trim',
+                'searchable' => false,
             ],
         ],
         'link' => [
@@ -175,33 +175,6 @@ return [
                     ],
                     'listModule' => [
                         'disabled' => true,
-                    ],
-                ],
-            ],
-        ],
-        'tags' => [
-            'exclude' => true,
-            'label' => $ll . 'tx_otfaq_domain_model_question.tags',
-            'config' => [
-                'type' => 'group',
-                'allowed' => 'tx_otfaq_domain_model_tag',
-                'MM' => 'tx_otfaq_question_tag_mm',
-                'foreign_table' => 'tx_otfaq_domain_model_tag',
-                'fieldControl' => [
-                    'editPopup' => [
-                        'disabled' => false,
-                    ],
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                    'listModule' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'suggestOptions' => [
-                    'default' => [
-                        'additionalSearchFields' => 'tag',
-                        // 'addWhere' => 'AND pages.doktype = 1'
                     ],
                 ],
             ],

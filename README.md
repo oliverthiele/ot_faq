@@ -1,9 +1,9 @@
 # OT FAQ — TYPO3 FAQ Extension with Structured Data
 
-A FAQ extension for TYPO3 v13 and v14 that renders an accessible Bootstrap 5 accordion and automatically outputs valid
+A FAQ extension for TYPO3 v14 that renders an accessible Bootstrap 5 accordion and automatically outputs valid
 **Schema.org FAQPage JSON-LD** structured data for Google Rich Results.
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-13.4%20%7C%2014.3-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-14.3-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-faq.svg)](https://packagist.org/packages/oliverthiele/ot-faq)
 [![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-faq/php.svg)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/oliverthiele/ot-faq.svg)](LICENSE)
@@ -20,10 +20,10 @@ A FAQ extension for TYPO3 v13 and v14 that renders an accessible Bootstrap 5 acc
 - **Custom parseFunc** — `lib.parseFuncOtFaqAnswer` additionally strips disallowed tags on frontend output
 - **ot-irrebuttons integration** — when `oliverthiele/ot-irrebuttons` is installed, each question can have individual
   buttons (icon, label, link) instead of a single link field
-- **Tags & categories** — questions can be tagged and categorised
+- **Categories** — questions can be categorised via the TYPO3 category system
 - **Related questions** — M:N relation between questions
 - **Storage page** — questions can be stored on a dedicated folder page; falls back to the plugin's own page
-- **SiteSet** — TypoScript is provided as a TYPO3 v13 SiteSet; no manual TypoScript includes required
+- **SiteSet** — TypoScript is provided as a TYPO3 SiteSet; no manual TypoScript includes required
 - **Structured data toggle** — disable JSON-LD output per content element (useful when the same FAQ is embedded on
   multiple pages)
 
@@ -31,11 +31,11 @@ A FAQ extension for TYPO3 v13 and v14 that renders an accessible Bootstrap 5 acc
 
 ## Requirements
 
-| Requirement | Version          |
-|-------------|------------------|
-| TYPO3       | `^13.4 \| ^14.3` |
-| PHP         | `>=8.3`          |
-| Bootstrap   | 5.x              |
+| Requirement | Version |
+|-------------|---------|
+| TYPO3       | `^14.3` |
+| PHP         | `>=8.3` |
+| Bootstrap   | 5.x     |
 
 ---
 
@@ -84,7 +84,7 @@ holds:
 - **Link** — optional fallback link shown below the answer (replaced by ot-irrebuttons buttons if that extension is
   active)
 - **Related questions** — optional M:N relation
-- **Tags / Categories** — optional
+- **Categories** — optional
 
 ---
 
@@ -118,11 +118,11 @@ When [`oliverthiele/ot-irrebuttons`](https://packagist.org/packages/oliverthiele
 
 The extension uses a layered fallback for partial resolution:
 
-| Index | Source | Content |
-|-------|--------|---------|
-| **0** | `EXT:ot_faq` | Minimal `IrreButtons.html` + empty `Icon.html` (last resort) |
-| **15** | `EXT:ot_irrebuttons` | Full implementation with Bootstrap Icons |
-| **80** | Your SitePackage | Project-specific icon system (recommended) |
+| Index  | Source               | Content                                                      |
+|--------|----------------------|--------------------------------------------------------------|
+| **0**  | `EXT:ot_faq`         | Minimal `IrreButtons.html` + empty `Icon.html` (last resort) |
+| **15** | `EXT:ot_irrebuttons` | Full implementation with Bootstrap Icons                     |
+| **80** | Your SitePackage     | Project-specific icon system (recommended)                   |
 
 No sitepackage configuration is required for basic button output. Icons will use Bootstrap Icon class names
 (`bi bi-*`) by default — only relevant if Bootstrap Icons CSS is loaded in your project.
@@ -145,6 +145,7 @@ The partial receives `{iconIdentifier}` as an argument. Example using
 [`oliverthiele/ot-icons`](https://packagist.org/packages/oliverthiele/ot-icons):
 
 ```html
+
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:i="http://typo3.org/ns/OliverThiele/OtIcons/ViewHelpers"
       data-namespace-typo3-fluid="true">
@@ -157,6 +158,7 @@ The partial receives `{iconIdentifier}` as an argument. Example using
 Or using Bootstrap Icons directly (which is the default from ot-irrebuttons):
 
 ```html
+
 <f:section name="Main">
     <i class="bi bi-{iconIdentifier}"></i>
 </f:section>
@@ -196,7 +198,6 @@ plugin.tx_otfaq {
 | `link`             | `getLink()`             | Optional link (typolink format)                             |
 | `irreButtons`      | `getIrreButtons()`      | Button records from ot-irrebuttons (runtime, not persisted) |
 | `relatedQuestions` | `getRelatedQuestions()` | Related question records                                    |
-| `tags`             | `getTags()`             | Tag records                                                 |
 
 ---
 

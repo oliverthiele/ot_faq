@@ -33,7 +33,7 @@ if (ExtensionManagementUtility::isLoaded('ot_irrebuttons')) {
 
     $GLOBALS['TCA']['tx_otfaq_domain_model_question']['types']['1']['showitem']
         = 'sys_language_uid, l10n_parent, l10n_diffsource,
-         question, answer, tx_otirrebuttons_domain_model_buttons, related_questions, tags,
+         question, answer, tx_otirrebuttons_domain_model_buttons, related_questions,
          --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
             --palette--;;hidden,
             --palette--;;access,

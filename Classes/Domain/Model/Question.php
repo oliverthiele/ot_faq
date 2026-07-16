@@ -23,7 +23,7 @@ declare(strict_types=1);
 
 namespace OliverThiele\OtFaq\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Attribute\Validate;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -48,7 +48,7 @@ class Question extends AbstractEntity
      *
      * @var string
      */
-    #[Extbase\Validate(['validator' => 'NotEmpty'])]
+    #[Validate('NotEmpty')]
     protected string $question = '';
 
     /**
@@ -56,7 +56,7 @@ class Question extends AbstractEntity
      *
      * @var string
      */
-    #[Extbase\Validate(['validator' => 'NotEmpty'])]
+    #[Validate('NotEmpty')]
     protected string $answer = '';
 
     /**
@@ -65,14 +65,6 @@ class Question extends AbstractEntity
      * @var ObjectStorage<Question>
      */
     protected ObjectStorage $relatedQuestions;
-
-    /**
-     * Tags
-     *
-     * @var ObjectStorage<Tag>
-     */
-    #[Extbase\ORM\Lazy]
-    protected ObjectStorage $tags;
 
     /**
      * Link
@@ -103,7 +95,6 @@ class Question extends AbstractEntity
     protected function initStorageObjects(): void
     {
         $this->relatedQuestions = new ObjectStorage();
-        $this->tags = new ObjectStorage();
     }
 
     /**
@@ -160,44 +151,6 @@ class Question extends AbstractEntity
     public function setRelatedQuestions(ObjectStorage $relatedQuestions): void
     {
         $this->relatedQuestions = $relatedQuestions;
-    }
-
-    /**
-     * Adds a Tag
-     */
-    public function addTag(Tag $tag): void
-    {
-        $this->tags->attach($tag);
-    }
-
-    /**
-     * Removes a Tag
-     *
-     * @param Tag $tagToRemove The Tag to be removed
-     */
-    public function removeTag(Tag $tagToRemove): void
-    {
-        $this->tags->detach($tagToRemove);
-    }
-
-    /**
-     * Returns the tags
-     *
-     * @return ObjectStorage<Tag> $tags
-     */
-    public function getTags(): ObjectStorage
-    {
-        return $this->tags;
-    }
-
-    /**
-     * Sets the tags
-     *
-     * @param ObjectStorage<Tag> $tags
-     */
-    public function setTags(ObjectStorage $tags): void
-    {
-        $this->tags = $tags;
     }
 
     public function getAnswer(): string
