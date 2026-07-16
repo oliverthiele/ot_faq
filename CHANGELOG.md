@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [7.0.0] — 2026-07-16
+
+### Changed
+
+- **Breaking:** Drop TYPO3 v13 support — requires TYPO3 `^14.3` only
+- Migrate all XLIFF files to XLIFF 2.0
+- Migrate `TYPO3\CMS\Extbase\Annotation\Validate` / `ORM\Lazy` usage to
+  `TYPO3\CMS\Extbase\Attribute\Validate` / `ORM\Lazy` — removes ExtensionScanner deprecation warnings;
+  `Validate` is now called with an explicit string argument instead of the deprecated array-config form
+- Migrate upgrade wizard to `TYPO3\CMS\Core\Attribute\UpgradeWizard` /
+  `TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate` (moved from `EXT:install` to `EXT:core` in TYPO3 v14)
+- Replace deprecated `ExtensionManagementUtility::addPiFlexFormValue()` with direct `columnsOverrides`
+  FlexForm data structure registration
+- Replace `ctrl.searchFields` with per-column `searchable` flags on `tx_otfaq_domain_model_question`
+
+### Removed
+
+- **Breaking:** Remove the unfinished Tag feature (`TagController`, `TagRepository`, `Tag` domain model,
+  `tx_otfaq_domain_model_tag` TCA, Tag templates/partials, `tags` relation on `Question`) — it was never
+  wired into a plugin registration or a finished template and only added dead weight
+
+---
+
 ## [6.0.1] — 2026-05-22
 
 ### Fixed
@@ -178,9 +201,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial public release for TYPO3 v11.5
 
-[Unreleased]: https://github.com/oliverthiele/ot-faq/compare/v6.0.0...HEAD
+[7.0.0]: https://github.com/oliverthiele/ot-faq/compare/v6.0.1...v7.0.0
+
 [6.0.0]: https://github.com/oliverthiele/ot-faq/compare/v5.0.2...v6.0.0
+
 [5.0.2]: https://github.com/oliverthiele/ot-faq/compare/v5.0.1...v5.0.2
+
 [5.0.1]: https://github.com/oliverthiele/ot-faq/compare/v5.0.0...v5.0.1
+
 [5.0.0]: https://github.com/oliverthiele/ot-faq/compare/v4.1.1...v5.0.0
+
 [1.0.0]: https://github.com/oliverthiele/ot-faq/releases/tag/v1.0.0

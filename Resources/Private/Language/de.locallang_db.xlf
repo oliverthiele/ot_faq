@@ -1,130 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" target-language="de" datatype="plaintext"
-		  original="EXT:ot_faq/Resources/Private/Language/locallang_db.xlf" date="2025-01-03T13:31:24Z"
-		  product-name="ot_faq">
-		<header/>
-		<body>
-			<trans-unit id="wizard.header" resname="wizard.header">
-				<source>Extras</source>
-				<target>Extras</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question" resname="tx_otfaq_domain_model_question">
-				<source>Question</source>
-				<target>Frage</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.question" resname="tx_otfaq_domain_model_question.question">
-				<source>Question</source>
-				<target>Frage</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.answer" resname="tx_otfaq_domain_model_question.answer">
-				<source>Answer</source>
-				<target>Antwort</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.answer.description" resname="tx_otfaq_domain_model_question.answer.description">
-				<source><![CDATA[
-				Valid HTML tags include <h1> to <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <div>, <b>, <strong>, <i> and <em>.
-				Advertising is not permitted at this point!
-				]]></source>
-				<target><![CDATA[
-				Gültige HTML-Tags sind <h1> bis <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <div>, <b>, <strong>, <i> und <em>.
-				Werbung ist an dieser Stelle nicht erlaubt!
-				]]></target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.link" resname="tx_otfaq_domain_model_question.link">
-				<source>Link</source>
-				<target>Link</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.link.description" resname="tx_otfaq_domain_model_question.link.description">
-				<source><![CDATA[
-				The optional link can point to a page where the question is answered in detail.
-				]]></source>
-				<target><![CDATA[
-				Der optionale Link kann auf eine Seite verweisen, auf der die Frage im Detail beantwortet wird.
-				]]></target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.related_questions" resname="tx_otfaq_domain_model_question.related_questions">
-				<source>Related Questions</source>
-				<target>Verwandte Fragen</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_question.tags" resname="tx_otfaq_domain_model_question.tags">
-				<source>Tags</source>
-				<target>Tags</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_tag" resname="tx_otfaq_domain_model_tag">
-				<source>Tag</source>
-				<target>Tag</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_domain_model_tag.tag" resname="tx_otfaq_domain_model_tag.tag">
-				<source>Tag</source>
-				<target>Tag</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_list.name" resname="tx_otfaq_list.name">
-				<source>FAQ</source>
-				<target>FAQ</target>
-			</trans-unit>
-			<trans-unit id="tx_otfaq_list.description" resname="tx_otfaq_list.description">
-				<source>Accordion with questions &amp; answers.</source>
-				<target>Accordion mit Fragen &amp; Antworten.</target>
-			</trans-unit>
-			<trans-unit id="flexform.sheetTitle" resname="flexform.sheetTitle">
-				<source>General</source>
-				<target>Allgemein</target>
-			</trans-unit>
-			<trans-unit id="flexform.disableStructuredData.label" resname="flexform.disableStructuredData.label">
-				<source>Disable Stuctured Data (JSON)?</source>
-				<target>Ausgabe der Strukturierten Daten deaktivieren?</target>
-			</trans-unit>
-			<trans-unit id="flexform.disableStructuredData.description" resname="flexform.disableStructuredData.description">
-				<source>If the same FAQs should be output on another page or if JSON should not be output for other reasons, the checkbox must be set.</source>
-				<target>Wenn die gleichen FAQs auf einer weiteren Seite ausgegeben werden sollen oder aus anderen Gründen kein JSON ausgegeben werden soll, muss die Checkbox gesetzt werden.</target>
-			</trans-unit>
-			<trans-unit id="flexform.disableStructuredData.title" resname="flexform.disableStructuredData.title">
-				<source>Disable</source>
-				<target>Deaktivieren</target>
-			</trans-unit>
-			<trans-unit id="flexform.initialView.label" resname="flexform.initialView.label">
-				<source>Initial view</source>
-				<target>Initiale Darstellung</target>
-			</trans-unit>
-			<trans-unit id="flexform.initialView.description" resname="flexform.initialView.description">
-				<source>Default: First accordion items is opened, all others closed.</source>
-				<target>Standard: Das erste Akkordeon-Element wird geöffnet, alle anderen werden geschlossen.</target>
-			</trans-unit>
-			<trans-unit id="flexform.initialView.0" resname="flexform.initialView.0">
-				<source>First accordion item opened</source>
-				<target>Erstes Akkordeon-Element geöffnet</target>
-			</trans-unit>
-			<trans-unit id="flexform.initialView.1" resname="flexform.initialView.1">
-				<source>All accordion elements closed</source>
-				<target>Alle Akkordeon-Elemente geschlossen</target>
-			</trans-unit>
-
-			<trans-unit id="flexform.accordionFlush.label" resname="flexform.accordionFlush.label">
-				<source>Accordion Flush</source>
-				<target>Accordion Flush</target>
-			</trans-unit>
-			<trans-unit id="flexform.accordionFlush.description" resname="flexform.accordionFlush.description">
-				<source>Add .accordion-flush to remove some borders and rounded corners to render accordions edge-to-edge with their parent container.</source>
-				<target>Fügt .accordion-flush hinzu, um einige Ränder und abgerundete Ecken zu entfernen, damit die Akkordeon-Elemente Rand an Rand mit ihrem übergeordneten Container dargestellt werden.</target>
-			</trans-unit>
-			<trans-unit id="flexform.accordionFlush.title" resname="flexform.accordionFlush.title">
-				<source>Enable</source>
-				<target>Aktivieren</target>
-			</trans-unit>
-
-			<trans-unit id="flexform.alwaysOpen.label" resname="flexform.alwaysOpen.label">
-				<source>Always Open</source>
-				<target>Immer Offen</target>
-			</trans-unit>
-			<trans-unit id="flexform.alwaysOpen.description" resname="flexform.alwaysOpen.description">
-				<source>Accordion items stay open when another item is opened.</source>
-				<target>Akkordeon-Elemente bleiben geöffnet, wenn ein anderes Element geöffnet wird.</target>
-			</trans-unit>
-			<trans-unit id="flexform.alwaysOpen.title" resname="flexform.alwaysOpen.title">
-				<source>Enable</source>
-				<target>Aktivieren</target>
-			</trans-unit>
-		</body>
-	</file>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="ot-faq-locallang-db"
+        original="EXT:ot_faq/Resources/Private/Language/locallang_db.xlf">
+    <unit id="wizard.header">
+      <segment>
+        <source>Extras</source>
+        <target>Extras</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question">
+      <segment>
+        <source>Question</source>
+        <target>Frage</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question.question">
+      <segment>
+        <source>Question</source>
+        <target>Frage</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question.answer">
+      <segment>
+        <source>Answer</source>
+        <target>Antwort</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question.answer.description">
+      <segment>
+        <source><![CDATA[Valid HTML tags include <h1> to <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <div>, <b>, <strong>, <i> and <em>. Advertising is not permitted at this point!]]></source>
+        <target><![CDATA[Gültige HTML-Tags sind <h1> bis <h6>, <br>, <ol>, <ul>, <li>, <a>, <p>, <div>, <b>, <strong>, <i> und <em>. Werbung ist an dieser Stelle nicht erlaubt!]]></target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question.link">
+      <segment>
+        <source>Link</source>
+        <target>Link</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question.link.description">
+      <segment>
+        <source><![CDATA[The optional link can point to a page where the question is answered in detail.]]></source>
+        <target><![CDATA[Der optionale Link kann auf eine Seite verweisen, auf der die Frage im Detail beantwortet wird.]]></target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_domain_model_question.related_questions">
+      <segment>
+        <source>Related Questions</source>
+        <target>Verwandte Fragen</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_list.name">
+      <segment>
+        <source>FAQ</source>
+        <target>FAQ</target>
+      </segment>
+    </unit>
+    <unit id="tx_otfaq_list.description">
+      <segment>
+        <source>Accordion with questions &amp; answers.</source>
+        <target>Accordion mit Fragen &amp; Antworten.</target>
+      </segment>
+    </unit>
+    <unit id="flexform.sheetTitle">
+      <segment>
+        <source>General</source>
+        <target>Allgemein</target>
+      </segment>
+    </unit>
+    <unit id="flexform.disableStructuredData.label">
+      <segment>
+        <source>Disable Stuctured Data (JSON)?</source>
+        <target>Ausgabe der Strukturierten Daten deaktivieren?</target>
+      </segment>
+    </unit>
+    <unit id="flexform.disableStructuredData.description">
+      <segment>
+        <source>If the same FAQs should be output on another page or if JSON should not be output for other reasons, the checkbox must be set.</source>
+        <target>Wenn die gleichen FAQs auf einer weiteren Seite ausgegeben werden sollen oder aus anderen Gründen kein JSON ausgegeben werden soll, muss die Checkbox gesetzt werden.</target>
+      </segment>
+    </unit>
+    <unit id="flexform.disableStructuredData.title">
+      <segment>
+        <source>Disable</source>
+        <target>Deaktivieren</target>
+      </segment>
+    </unit>
+    <unit id="flexform.initialView.label">
+      <segment>
+        <source>Initial view</source>
+        <target>Initiale Darstellung</target>
+      </segment>
+    </unit>
+    <unit id="flexform.initialView.description">
+      <segment>
+        <source>Default: First accordion items is opened, all others closed.</source>
+        <target>Standard: Das erste Akkordeon-Element wird geöffnet, alle anderen werden geschlossen.</target>
+      </segment>
+    </unit>
+    <unit id="flexform.initialView.0">
+      <segment>
+        <source>First accordion item opened</source>
+        <target>Erstes Akkordeon-Element geöffnet</target>
+      </segment>
+    </unit>
+    <unit id="flexform.initialView.1">
+      <segment>
+        <source>All accordion elements closed</source>
+        <target>Alle Akkordeon-Elemente geschlossen</target>
+      </segment>
+    </unit>
+    <unit id="flexform.accordionFlush.label">
+      <segment>
+        <source>Accordion Flush</source>
+        <target>Accordion Flush</target>
+      </segment>
+    </unit>
+    <unit id="flexform.accordionFlush.description">
+      <segment>
+        <source>Add .accordion-flush to remove some borders and rounded corners to render accordions edge-to-edge with their parent container.</source>
+        <target>Fügt .accordion-flush hinzu, um einige Ränder und abgerundete Ecken zu entfernen, damit die Akkordeon-Elemente Rand an Rand mit ihrem übergeordneten Container dargestellt werden.</target>
+      </segment>
+    </unit>
+    <unit id="flexform.accordionFlush.title">
+      <segment>
+        <source>Enable</source>
+        <target>Aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="flexform.alwaysOpen.label">
+      <segment>
+        <source>Always Open</source>
+        <target>Immer Offen</target>
+      </segment>
+    </unit>
+    <unit id="flexform.alwaysOpen.description">
+      <segment>
+        <source>Accordion items stay open when another item is opened.</source>
+        <target>Akkordeon-Elemente bleiben geöffnet, wenn ein anderes Element geöffnet wird.</target>
+      </segment>
+    </unit>
+    <unit id="flexform.alwaysOpen.title">
+      <segment>
+        <source>Enable</source>
+        <target>Aktivieren</target>
+      </segment>
+    </unit>
+  </file>
 </xliff>

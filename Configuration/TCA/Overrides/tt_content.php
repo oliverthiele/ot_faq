@@ -26,8 +26,5 @@ ExtensionManagementUtility::addToAllTCAtypes(
     'after:subheader',
 );
 
-ExtensionManagementUtility::addPiFlexFormValue(
-    '*',
-    'FILE:EXT:ot_faq/Configuration/FlexForms/FlexForm.xml',
-    $pluginSignature
-);
+$GLOBALS['TCA']['tt_content']['types'][$pluginSignature]['columnsOverrides']['pi_flexform']['config']['ds']
+    = 'FILE:EXT:ot_faq/Configuration/FlexForms/FlexForm.xml';
