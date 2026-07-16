@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [7.0.1] — 2026-07-16
+
+### Changed
+
+- Rename template/layout files to the TYPO3 v14 `.fluid.html` convention (`Layouts/Default.html` →
+  `Default.fluid.html`, `Templates/Question/List.html` → `List.fluid.html`) — purely additive, Fluid falls back
+  to the plain `.html` name, so sitepackage overrides via `templateRootPaths`/`layoutRootPaths` are unaffected
+
+---
+
 ## [7.0.0] — 2026-07-16
 
 ### Changed
@@ -200,6 +210,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Initial public release for TYPO3 v11.5
+
+[7.0.1]: https://github.com/oliverthiele/ot-faq/compare/v7.0.0...v7.0.1
 
 [7.0.0]: https://github.com/oliverthiele/ot-faq/compare/v6.0.1...v7.0.0
 
