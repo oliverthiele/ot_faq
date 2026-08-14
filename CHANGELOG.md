@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [7.0.3] — 2026-08-14
+
+### Fixed
+
+- Invalid heading levels for the questions: the accordion header was rendered as
+  `<h{header_layout + 1}>` without any bounds, so `header_layout = 100`
+  ("Hidden") produced `<h101>` and `header_layout = 0` ("Default") produced
+  `<h1>` for every question. The level is now resolved in the controller — it
+  falls back to `settings.defaultHeaderType` for the non-level values `0` and
+  `100` and is clamped to a valid HTML heading level (1–6)
+
+---
+
 ## [7.0.2] — 2026-07-28
 
 Maintenance release — developer tooling only, no functional changes.
@@ -227,6 +240,8 @@ Maintenance release — developer tooling only, no functional changes.
 ### Added
 
 - Initial public release for TYPO3 v11.5
+
+[7.0.3]: https://github.com/oliverthiele/ot-faq/compare/v7.0.2...v7.0.3
 
 [7.0.2]: https://github.com/oliverthiele/ot-faq/compare/v7.0.1...v7.0.2
 
