@@ -46,6 +46,21 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
  */
 class QuestionController extends ActionController
 {
+    /**
+     * Lowest valid HTML heading level (<h1>).
+     */
+    private const MINIMUM_HEADING_LEVEL = 1;
+
+    /**
+     * Highest valid HTML heading level (<h6>).
+     */
+    private const MAXIMUM_HEADING_LEVEL = 6;
+
+    /**
+     * Used when neither the content element nor TypoScript provides a usable heading level.
+     */
+    private const DEFAULT_HEADING_LEVEL = 2;
+
     public function __construct(
         protected QuestionRepository $questionRepository,
         protected ContentObjectRenderer $cObj,
@@ -73,6 +88,7 @@ class QuestionController extends ActionController
         $cObjData = $cObj instanceof ContentObjectRenderer ? (get_object_vars($cObj)['data'] ?? []) : [];
 
         $this->view->assign('data', $cObjData);
+        $this->view->assign('questionHeadingLevel', $this->resolveQuestionHeadingLevel($cObjData));
 
         // pages field as an integer array (automatically clears invalid entries)
         // use pages from Flexform/DB if set, otherwise fall back to the current content element pid
@@ -125,6 +141,32 @@ class QuestionController extends ActionController
         return $this->responseFactory->createResponse()
             ->withAddedHeader('Content-Type', 'text/html; charset=utf-8')
             ->withBody($this->streamFactory->createStream($this->view->render()));
+    }
+
+    /**
+     * Determines the heading level used for the single questions.
+     *
+     * Each question sits one level below the heading of the content element itself.
+     * `header_layout` may also carry values that are not heading levels at all:
+     * `0` means "Default" (level comes from TypoScript) and `100` means "Hidden".
+     * In both cases the configured default heading type is used instead, and the
+     * result is always clamped to a valid HTML heading level (1–6).
+     *
+     * @param array<string, mixed> $contentElementData The tt_content record of the plugin
+     */
+    private function resolveQuestionHeadingLevel(array $contentElementData): int
+    {
+        $headingLevel = (int)($contentElementData['header_layout'] ?? 0);
+
+        if ($headingLevel < self::MINIMUM_HEADING_LEVEL || $headingLevel > self::MAXIMUM_HEADING_LEVEL) {
+            $headingLevel = (int)($this->settings['defaultHeaderType'] ?? 0);
+        }
+
+        if ($headingLevel < self::MINIMUM_HEADING_LEVEL || $headingLevel > self::MAXIMUM_HEADING_LEVEL) {
+            $headingLevel = self::DEFAULT_HEADING_LEVEL;
+        }
+
+        return min($headingLevel + 1, self::MAXIMUM_HEADING_LEVEL);
     }
 
     /**
