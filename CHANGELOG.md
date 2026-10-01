@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+### Changed
+
+- Remove `ext_emconf.php`: TYPO3 14.2+ reads the extension metadata from
+  `composer.json` in classic mode as well (#108345), so the version and
+  `providesPackages` are declared there now
+
 ## [7.0.3] — 2026-08-14
 
 ### Fixed
@@ -241,6 +249,7 @@ Maintenance release — developer tooling only, no functional changes.
 
 - Initial public release for TYPO3 v11.5
 
+[Unreleased]: https://github.com/oliverthiele/ot-faq/compare/v7.0.3...HEAD
 [7.0.3]: https://github.com/oliverthiele/ot-faq/compare/v7.0.2...v7.0.3
 
 [7.0.2]: https://github.com/oliverthiele/ot-faq/compare/v7.0.1...v7.0.2

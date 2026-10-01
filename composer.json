@@ -34,7 +34,11 @@
 	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "ot_faq"
+			"extension-key": "ot_faq",
+			"version": "7.0.3",
+			"Package": {
+				"providesPackages": {}
+			}
 		}
 	}
 }
